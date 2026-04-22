@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClaimLogic — AI-Powered Claim Command Center</title>
+  <meta name="description" content="ClaimLogic — the AI-powered claim command center for roofing companies. Automate supplements, analyze scopes, recover more revenue. Starting at $149/mo.">
+  <link rel="icon" type="image/png" href="claimlogic-logo.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0A0F1C;
+      --primary: #00D4FF;
+      --secondary: #1E90FF;
+      --silver: #AAB4C2;
+      --text: #e5eefb;
+      --text-dim: #7a8ba8;
+      --card-bg: rgba(14,20,36,0.85);
+      --border: rgba(0,212,255,0.12);
+      --glow: 0 0 20px rgba(0,212,255,0.15);
+      --green: #00FF9C;
+      --red: #FF4D4D;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    a { color: var(--primary); text-decoration: none; }
+
+    /* Aurora background */
+    .aurora-container { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+    .aurora-blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; will-change: transform; }
+    .aurora-1 { width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(0,212,255,0.6), transparent 65%); top: -10%; left: -5%; animation: drift1 20s ease-in-out infinite; }
+    .aurora-2 { width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(30,144,255,0.5), transparent 65%); bottom: -10%; right: -5%; animation: drift2 25s ease-in-out infinite; }
+    .aurora-3 { width: 500px; height: 250px; background: radial-gradient(ellipse, rgba(0,212,255,0.3), transparent 65%); top: 40%; left: 30%; animation: drift3 30s ease-in-out infinite; }
+    @keyframes drift1 { 0%,100% { transform: translate(-20%,-10%) rotate(-5deg); } 50% { transform: translate(20%,10%) rotate(8deg); } }
+    @keyframes drift2 { 0%,100% { transform: translate(20%,10%) rotate(5deg); } 50% { transform: translate(-30%,-15%) rotate(-10deg); } }
+    @keyframes drift3 { 0%,100% { transform: translate(0,20%) rotate(-8deg); } 50% { transform: translate(-25%,-20%) rotate(6deg); } }
+
+    /* Sweep line */
+    @keyframes sweep { 0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; } 20% { opacity: 0.7; } 100% { transform: translateX(260%) skewX(-18deg); opacity: 0; } }
+    .sweep-line { position: absolute; inset: -20% auto -20% -20%; width: 30%; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.2), rgba(255,255,255,0.08), transparent); animation: sweep 5s linear infinite; pointer-events: none; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+    /* Hero */
+    .hero { padding: 100px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--card-bg); border: 1px solid var(--border); padding: 8px 18px; border-radius: 50px; font-size: 0.8rem; color: var(--primary); font-weight: 600; margin-bottom: 28px; box-shadow: var(--glow); }
+    .hero-badge span { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 .accent { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.15rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 36px; line-height: 1.7; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--bg); font-weight: 800; font-size: 1.1rem; padding: 16px 36px; border-radius: 60px; box-shadow: 0 0 40px rgba(0,212,255,0.4); transition: all 0.25s; }
+    .hero-cta:hover { transform: scale(1.04); box-shadow: 0 0 60px rgba(0,212,255,0.5); }
+    .hero-sub { margin-top: 14px; font-size: 0.85rem; color: var(--text-dim); }
+
+    /* Logo */
+    .logo-glow { filter: drop-shadow(0 0 20px rgba(0,212,255,0.5)); }
+
+    /* Stats bar */
+    .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: -40px 0 60px; }
+    .stat-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 28px; text-align: center; backdrop-filter: blur(16px); box-shadow: var(--glow); transition: all 0.25s; }
+    .stat-card:hover { border-color: rgba(0,212,255,0.3); box-shadow: 0 0 32px rgba(0,212,255,0.2); transform: translateY(-3px); }
+    .stat-value { font-size: 2.2rem; font-weight: 900; color: #fff; }
+    .stat-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.14em; margin-top: 6px; }
+
+    /* Sections */
+    .section { padding: 80px 0; }
+    .section-label { font-size: 0.72rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.2em; font-weight: 700; margin-bottom: 12px; }
+    .section-title { font-size: 2rem; font-weight: 900; margin-bottom: 16px; }
+    .section-desc { font-size: 1rem; color: var(--text-dim); max-width: 600px; line-height: 1.7; margin-bottom: 40px; }
+
+    /* Features grid */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .feature-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 32px; backdrop-filter: blur(16px); box-shadow: var(--glow); transition: all 0.25s; }
+    .feature-card:hover { border-color: rgba(0,212,255,0.3); box-shadow: 0 0 32px rgba(0,212,255,0.2); transform: translateY(-3px); }
+    .feature-icon { width: 48px; height: 48px; border-radius: 16px; background: rgba(0,212,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px; }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .feature-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .pricing-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 28px; padding: 36px; backdrop-filter: blur(16px); box-shadow: var(--glow); transition: all 0.25s; position: relative; overflow: hidden; }
+    .pricing-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); }
+    .pricing-card.popular { border-color: var(--primary); box-shadow: 0 0 40px rgba(0,212,255,0.25); }
+    .pricing-card.popular::before { content: 'MOST POPULAR'; position: absolute; top: 16px; right: -30px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--bg); font-size: 0.65rem; font-weight: 800; padding: 4px 40px; transform: rotate(45deg); letter-spacing: 0.1em; }
+    .pricing-name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--silver); font-weight: 600; }
+    .pricing-price { font-size: 2.8rem; font-weight: 900; color: #fff; margin: 12px 0; }
+    .pricing-price span { font-size: 1rem; color: var(--text-dim); font-weight: 500; }
+    .pricing-features { list-style: none; margin: 24px 0; }
+    .pricing-features li { padding: 8px 0; font-size: 0.9rem; color: var(--text-dim); border-bottom: 1px solid rgba(0,212,255,0.06); }
+    .pricing-features li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+    .pricing-btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 16px; font-weight: 800; font-size: 0.9rem; transition: all 0.22s; border: none; cursor: pointer; }
+    .pricing-btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+    .pricing-btn-outline:hover { background: rgba(0,212,255,0.1); box-shadow: 0 0 18px rgba(0,212,255,0.3); }
+    .pricing-btn-solid { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--bg); }
+    .pricing-btn-solid:hover { box-shadow: 0 0 30px rgba(0,212,255,0.45); transform: scale(1.02); }
+
+    /* CTA */
+    .cta-section { text-align: center; padding: 80px 0 100px; }
+    .cta-section h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 16px; }
+    .cta-section p { font-size: 1rem; color: var(--text-dim); margin-bottom: 32px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-dim); font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 60px 0 50px; }
+      .stats-bar { margin: -20px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Aurora background -->
+  <div class="aurora-container">
+    <div class="aurora-blob aurora-1"></div>
+    <div class="aurora-blob aurora-2"></div>
+    <div class="aurora-blob aurora-3"></div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="sweep-line"></div>
+    <div class="container">
+      <img src="claimlogic-logo.jpg" alt="ClaimLogic" width="180" class="logo-glow" style="margin-bottom:24px">
+      <div class="hero-badge"><span></span> AI-Powered Claim Intelligence</div>
+      <h1>Command Every Claim.<br><span class="accent">Capture Every Dollar.</span></h1>
+      <p>ClaimLogic is the AI-powered command center built for roofing companies. Automate scope reviews, generate supplements, analyze photos, and recover revenue other CRMs leave on the table.</p>
+      <a href="https://trustman-crm-production.up.railway.app/register" class="hero-cta">Start 14-Day Free Trial →</a>
+      <p class="hero-sub">Starting at $149/mo · No credit card required</p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="container">
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--green)">$12K+</div>
+        <div class="stat-label">Avg. Revenue Recovered Per Job</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--primary)">94%</div>
+        <div class="stat-label">Supplement Approval Rate</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">3 min</div>
+        <div class="stat-label">Scope Analysis Time</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:var(--primary)">24/7</div>
+        <div class="stat-label">AI Claim Intelligence</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Platform</div>
+      <h2 class="section-title">Built for Roofing. Powered by AI.</h2>
+      <p class="section-desc">Every feature designed to help you close more claims, recover more money, and run your business from one command center.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>AI Scope Review</h3>
+          <p>Upload any insurance estimate. ClaimLogic's AI instantly finds missing line items, under-scoped quantities, and supplement opportunities.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📄</div>
+          <h3>Auto Supplement Generation</h3>
+          <p>One click generates a professional supplement letter with code references, justifications, and estimated revenue recovery.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📷</div>
+          <h3>Photo Analysis</h3>
+          <p>AI analyzes roof photos to identify damage, flag missing components, and recommend what documentation is still needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌩️</div>
+          <h3>Storm Tracker</h3>
+          <p>Real-time hail maps with impact zones, street-level zoom, and size data. Know exactly where to knock before anyone else.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Claim Pipeline</h3>
+          <p>Track every job from lead to payment. Drag-and-drop pipeline, status tracking, financial snapshots, and team leaderboards.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📐</div>
+          <h3>Quick Square Measurements</h3>
+          <p>Fast roof measurements without climbing a ladder. Get squares, ridge, valley, rake, and eave lengths instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Digital Contracts</h3>
+          <p>Generate, send, and get contracts signed digitally. Track signature status and auto-notify when signed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>Team Chat & Activity</h3>
+          <p>Built-in team communication, task assignment, and real-time activity feed so nothing slips through the cracks.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <h3>Customer Portal</h3>
+          <p>Give homeowners a branded portal to track their claim progress, view documents, and sign contracts online.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple Pricing. Serious ROI.</h2>
+      <p class="section-desc">One supplement approval pays for ClaimLogic for a year. Start with a 14-day free trial.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">$149<span>/mo</span></div>
+          <ul class="pricing-features">
+            <li>Up to 50 active jobs</li>
+            <li>AI Scope Review</li>
+            <li>Quick Square Measurements</li>
+            <li>Storm Tracker</li>
+            <li>Digital Contracts</li>
+            <li>Customer Portal</li>
+            <li>Team Chat</li>
+          </ul>
+          <a href="https://trustman-crm-production.up.railway.app/register" class="pricing-btn pricing-btn-outline">Start Free Trial</a>
+        </div>
+        <div class="pricing-card popular">
+          <div class="pricing-name">Pro</div>
+          <div class="pricing-price">$249<span>/mo</span></div>
+          <ul class="pricing-features">
+            <li>Unlimited jobs</li>
+            <li>AI Scope Review + Photo Analysis</li>
+            <li>Auto Supplement Generation</li>
+            <li>Quick Square Measurements</li>
+            <li>25 Emails / Employees</li>
+            <li>Priority Support</li>
+            <li>Advanced Reporting</li>
+            <li>Everything in Starter</li>
+          </ul>
+          <a href="https://trustman-crm-production.up.railway.app/register" class="pricing-btn pricing-btn-solid">Start Free Trial</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">$349<span>/mo</span></div>
+          <ul class="pricing-features">
+            <li>Unlimited everything</li>
+            <li>Multi-location support</li>
+            <li>Custom AI training</li>
+            <li>API access</li>
+            <li>White-label options</li>
+            <li>Dedicated account manager</li>
+            <li>Everything in Pro</li>
+          </ul>
+          <a href="https://trustman-crm-production.up.railway.app/register" class="pricing-btn pricing-btn-outline">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Stop Leaving Money on the Table.</h2>
+      <p>Every missed supplement is revenue lost. ClaimLogic's AI finds what others miss.</p>
+      <a href="https://trustman-crm-production.up.railway.app/register" class="hero-cta">Start 14-Day Free Trial →</a>
+      <p class="hero-sub">No credit card required · Cancel anytime</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 ClaimLogic. AI-Powered Claim Command Center.</p>
+      <p style="margin-top:8px"><a href="mailto:info@getclaimlogic.com">info@getclaimlogic.com</a> · <a href="tel:6365417005">(636) 541-7005</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
