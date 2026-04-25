@@ -67,6 +67,46 @@
     .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
     .hero-note { margin-top: 16px; font-size: .82rem; color: var(--dim); }
 
+    /* ═══ PRICING V2 ═══ */
+    .pricing-v2 { padding: 90px 0 60px; }
+    .pricing-v2 .price-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
+    .pricing-v2 .price-card { padding: 32px 28px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+    .pricing-v2 .price-card.pop { border: 1.5px solid var(--primary); box-shadow: 0 0 48px rgba(0,212,255,0.2), inset 0 0 60px rgba(0,212,255,0.03); transform: scale(1.04); z-index: 2; }
+    .pricing-v2 .pop-badge { position: absolute; top: 0; left: 0; right: 0; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--bg); text-align: center; font-size: .65rem; font-weight: 800; padding: 6px 0; letter-spacing: .18em; text-transform: uppercase; }
+    .pricing-v2 .price-tier { font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; color: var(--silver); font-weight: 700; }
+    .pricing-v2 .price-team { font-size: .78rem; color: var(--primary); font-weight: 600; margin: 4px 0 2px; }
+    .pricing-v2 .price-amt { font-size: 2.6rem; font-weight: 900; margin: 8px 0 4px; }
+    .pricing-v2 .price-amt span { font-size: .85rem; color: var(--dim); font-weight: 500; }
+    .pricing-v2 .price-desc { font-size: .82rem; color: var(--dim); margin-bottom: 18px; line-height: 1.5; min-height: 48px; }
+    .pricing-v2 .price-list { list-style: none; margin-bottom: 24px; flex: 1; }
+    .pricing-v2 .price-list li { padding: 6px 0; font-size: .82rem; color: var(--dim); border-bottom: 1px solid rgba(0,212,255,0.05); }
+    .pricing-v2 .price-list li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+    .pricing-v2 .price-includes { font-size: .72rem; color: var(--primary); font-weight: 600; margin-bottom: 8px; padding-top: 8px; border-top: 1px solid rgba(0,212,255,0.1); }
+    .pricing-v2 .price-btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 16px; font-weight: 800; font-size: .88rem; transition: all .22s; cursor: pointer; border: none; margin-top: auto; }
+
+    .why-switch { padding: 70px 0; }
+    .why-switch .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; max-width: 800px; }
+    .why-switch .compare-card { padding: 28px; }
+    .why-switch .compare-card.old { border-left: 3px solid var(--red); }
+    .why-switch .compare-card.new { border-left: 3px solid var(--green); }
+    .why-switch .compare-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: 12px; }
+    .why-switch .compare-card li { padding: 5px 0; font-size: .85rem; color: var(--dim); list-style: none; }
+    .why-switch .compare-card.old li::before { content: '✗ '; color: var(--red); font-weight: 700; }
+    .why-switch .compare-card.new li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+
+    .migration { padding: 50px 0 70px; text-align: center; }
+    .migration .crm-logos { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin: 24px 0; }
+    .migration .crm-tag { background: var(--card); border: 1px solid var(--border); padding: 10px 22px; border-radius: 12px; font-size: .88rem; font-weight: 600; color: var(--silver); }
+
+    @media(max-width:960px) {
+      .pricing-v2 .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .pricing-v2 .price-card.pop { transform: scale(1); }
+    }
+    @media(max-width:600px) {
+      .pricing-v2 .price-grid { grid-template-columns: 1fr; }
+      .why-switch .compare-grid { grid-template-columns: 1fr; }
+    }
+
     /* ═══ STATS ═══ */
     .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 18px; margin: -36px 0 70px; }
     .stat { text-align: center; padding: 28px 20px; }
@@ -148,10 +188,10 @@
     <h1 style="font-size:clamp(1.6rem,4vw,2.4rem)">This isn't <em>only</em> a CRM. <span class="accent">It's a Command Center.</span></h1>
     <p class="detail" style="margin-top:12px">ClaimLogic reads your scope, finds missing items, writes supplements, and runs your claim process automatically.</p>
     <div class="hero-btns">
-      <a href="https://trustman-crm-production.up.railway.app/register" class="btn-solid">Start 7-Day Free Trial →</a>
+      <a href="https://web-production-4fb20.up.railway.app/register" class="btn-solid">Start 7-Day Free Trial →</a>
       <a href="#demo" class="btn-outline">See It In Action</a>
     </div>
-    <p class="hero-note">Starting at $149/mo · No credit card required</p>
+    <p class="hero-note">Starting at $199/mo · No credit card required</p>
   </div>
 </section>
 
@@ -242,59 +282,145 @@
 </section>
 
 <!-- ═══ PRICING ═══ -->
-<section class="pricing">
+<section class="pricing-v2" id="pricing">
   <div class="container">
-    <div class="label">Pricing</div>
-    <h2 class="heading">One Supplement Pays for a Year.</h2>
-    <p class="sub">Simple pricing. Serious ROI. Start with a 7-day free trial.</p>
-    <div style="max-width:680px;margin:0 auto 36px;background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(30,144,255,0.06));border:1px solid rgba(0,212,255,0.2);border-radius:20px;padding:24px 28px;text-align:center">
-      <p style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:6px">⚡ Early Access Pricing — Lock It In Now</p>
-      <p style="font-size:.92rem;color:var(--dim);line-height:1.6">ClaimLogic will save your company tens of thousands to hundreds of thousands of dollars — plus countless hours of manual work. These launch prices won't last. Once we raise them, existing members keep their rate forever. Get in now.</p>
+    <div style="text-align:center;margin-bottom:8px">
+      <div class="label">Pricing</div>
+      <h2 class="heading">ClaimLogic Pricing</h2>
+      <p style="font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:12px">AI-Powered Claim Command Center for Roofing Companies</p>
+      <p class="sub" style="margin:0 auto;max-width:640px">Choose the plan based on the size of your company. Every plan includes the core ClaimLogic system. Pricing scales by team size, automation volume, AI usage, onboarding, and support level.</p>
     </div>
+
     <div class="price-grid">
+      <!-- STARTER -->
       <div class="card price-card">
         <div class="price-tier">Starter</div>
-        <div class="price-amt">$149<span>/mo</span></div>
+        <div class="price-team">1–5 employees</div>
+        <div class="price-amt">$199<span>/mo</span></div>
+        <p class="price-desc">Best for small roofing companies ready to stop manually managing claims.</p>
         <ul class="price-list">
-          <li>Up to 50 active jobs</li>
-          <li>AI Scope Review</li>
-          <li>Quick Square Measurements</li>
-          <li>Storm Tracker</li>
-          <li>Digital Contracts</li>
-          <li>Customer Portal</li>
-          <li>Team Chat</li>
+          <li>AI scope analysis</li>
+          <li>AI photo review</li>
+          <li>Claim management dashboard</li>
+          <li>Supplement draft generation</li>
+          <li>Adjuster email templates</li>
+          <li>Document storage</li>
+          <li>Basic onboarding</li>
+          <li>Up to 5 users</li>
         </ul>
-        <a href="https://trustman-crm-production.up.railway.app/register" class="btn-outline price-btn" style="width:100%">Start Free Trial</a>
+        <a href="https://web-production-4fb20.up.railway.app/register" class="btn-outline price-btn" style="width:100%">Start Free Trial</a>
       </div>
+
+      <!-- GROWTH -->
       <div class="card price-card pop">
-        <div class="price-tier">Pro</div>
-        <div class="price-amt">$249<span>/mo</span></div>
+        <div class="pop-badge">★ Most Popular</div>
+        <div style="margin-top:28px">
+          <div class="price-tier">Growth</div>
+          <div class="price-team">6–15 employees</div>
+          <div class="price-amt">$499<span>/mo</span></div>
+          <p class="price-desc">Best for roofing companies doing consistent claim volume and needing stronger automation.</p>
+        </div>
+        <p class="price-includes">Everything in Starter, plus:</p>
         <ul class="price-list">
-          <li>Unlimited jobs</li>
-          <li>AI Scope Review + Photo Analysis</li>
-          <li>Auto Supplement Generation</li>
-          <li>Quick Square Measurements</li>
-          <li>25 Emails / Employees</li>
-          <li>Priority Support</li>
-          <li>Advanced Reporting</li>
-          <li>Everything in Starter</li>
+          <li>Unlimited active claims</li>
+          <li>Automated supplement workflow</li>
+          <li>Auto-generated adjuster emails</li>
+          <li>Satellite measurement access</li>
+          <li>Storm tracking tools</li>
+          <li>CRM data migration</li>
+          <li>Up to 15 users</li>
         </ul>
-        <a href="https://trustman-crm-production.up.railway.app/register" class="btn-solid price-btn" style="width:100%;justify-content:center">Start Free Trial</a>
+        <a href="https://web-production-4fb20.up.railway.app/register" class="btn-solid price-btn" style="width:100%;justify-content:center">Start Free Trial</a>
       </div>
+
+      <!-- PRO -->
+      <div class="card price-card">
+        <div class="price-tier">Pro</div>
+        <div class="price-team">16–40 employees</div>
+        <div class="price-amt">$899<span>/mo</span></div>
+        <p class="price-desc">Best for companies that want ClaimLogic operating like an AI back office.</p>
+        <p class="price-includes">Everything in Growth, plus:</p>
+        <ul class="price-list">
+          <li>Advanced AI employee workflows</li>
+          <li>Job profitability tracking</li>
+          <li>Crew labor cost tracking</li>
+          <li>Material invoice tracking</li>
+          <li>Supplier order workflow</li>
+          <li>Priority processing</li>
+          <li>Priority support</li>
+          <li>Up to 40 users</li>
+        </ul>
+        <a href="https://web-production-4fb20.up.railway.app/register" class="btn-outline price-btn" style="width:100%">Start Free Trial</a>
+      </div>
+
+      <!-- ENTERPRISE -->
       <div class="card price-card">
         <div class="price-tier">Enterprise</div>
-        <div class="price-amt">$349<span>/mo</span></div>
+        <div class="price-team">40+ employees / multi-location</div>
+        <div class="price-amt" style="font-size:1.8rem;padding:12px 0">Custom Pricing</div>
+        <p class="price-desc">Built for large roofing companies, franchises, and high-volume claim operations.</p>
+        <p class="price-includes">Everything in Pro, plus:</p>
         <ul class="price-list">
-          <li>Unlimited everything</li>
-          <li>Multi-location support</li>
+          <li>Multi-location dashboards</li>
+          <li>Custom workflows</li>
           <li>Custom AI training</li>
-          <li>API access</li>
-          <li>White-label options</li>
-          <li>Dedicated account manager</li>
-          <li>Everything in Pro</li>
+          <li>Dedicated onboarding</li>
+          <li>Dedicated support</li>
+          <li>Advanced reporting</li>
+          <li>Unlimited users available</li>
+          <li>White-label options available</li>
         </ul>
-        <a href="mailto:info@getclaimlogic.com" class="btn-outline price-btn" style="width:100%">Contact Sales</a>
+        <a href="mailto:info@getclaimlogic.com" class="btn-outline price-btn" style="width:100%">Book a Demo</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY SWITCH ═══ -->
+<section class="why-switch">
+  <div class="container">
+    <div class="label">The Math</div>
+    <h2 class="heading">Why Companies Switch to <span class="accent">ClaimLogic</span></h2>
+    <p class="sub">Most roofing companies are paying for a CRM, a supplement company, measurement tools, storm tracking, admin labor, and manual follow-up. ClaimLogic puts it all into one AI-powered command center.</p>
+    <div class="compare-grid">
+      <div class="card compare-card old">
+        <h4 style="color:var(--red)">❌ What You're Paying Now</h4>
+        <ul>
+          <li>10% to supplement companies</li>
+          <li>$300–$1,000/month for a basic CRM</li>
+          <li>Extra for measurements</li>
+          <li>Extra for storm tools</li>
+          <li>Extra for admin work</li>
+          <li>Hours of manual follow-up</li>
+        </ul>
+      </div>
+      <div class="card compare-card new">
+        <h4 style="color:var(--green)">✅ What You Get with ClaimLogic</h4>
+        <ul>
+          <li>One system — AI-powered claim automation</li>
+          <li>Supplements generated in minutes, not days</li>
+          <li>Built-in measurements & storm tracking</li>
+          <li>Automated adjuster follow-up</li>
+          <li>No percentage cuts on your claims</li>
+          <li>From scope to payment — fully managed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MIGRATION ═══ -->
+<section class="migration">
+  <div class="container">
+    <div class="label">Migration</div>
+    <h2 class="heading">Easy Migration</h2>
+    <p class="sub" style="margin:0 auto">Already using another CRM? We can migrate your current data into ClaimLogic so your company can keep operating without starting over.</p>
+    <div class="crm-logos">
+      <div class="crm-tag">AccuLynx</div>
+      <div class="crm-tag">JobNimbus</div>
+      <div class="crm-tag">JobProgress</div>
+      <div class="crm-tag">Salesforce</div>
+      <div class="crm-tag">Spreadsheets</div>
     </div>
   </div>
 </section>
@@ -305,8 +431,8 @@
     <h2 class="heading">Stop Running Your Claims Manually.</h2>
     <p class="sub" style="margin:0 auto 32px">Every missed supplement is revenue lost. ClaimLogic's AI finds what others miss.</p>
     <div class="hero-btns">
-      <a href="https://trustman-crm-production.up.railway.app/register" class="btn-solid">Get Started →</a>
-      <a href="mailto:info@getclaimlogic.com" class="btn-outline">Book Demo</a>
+      <a href="https://web-production-4fb20.up.railway.app/register" class="btn-solid">Start Your Free Trial →</a>
+      <a href="mailto:info@getclaimlogic.com" class="btn-outline">Book a 15-Minute Demo</a>
     </div>
     <p class="hero-note">No credit card required · Cancel anytime</p>
   </div>
