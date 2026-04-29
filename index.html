@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClaimLogic — AI-Powered Claim Command Center</title>
-  <meta name="description" content="ClaimLogic reads your scope, finds missing items, writes supplements, and runs your claim process automatically. Built on Logic. Designed to Win.">
+  <title>ClaimLogic — AI Supplement Recovery for Roofers</title>
+  <meta name="description" content="Stop leaving money on the table. ClaimLogic finds, calculates, and recovers every dollar your insurance carriers owe you. AI-powered supplements in 90 seconds.">
+  <meta property="og:title" content="ClaimLogic — Recover Every Dollar Your Carrier Owes You">
+  <meta property="og:description" content="The average roofer leaves $5,000+ on every claim. ClaimLogic finds it, writes the supplement, sends to adjuster — in 90 seconds.">
+  <meta property="og:image" content="https://getclaimlogic.com/claimlogic-logo.jpg">
   <link rel="icon" type="image/jpeg" href="claimlogic-logo.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
@@ -18,431 +21,408 @@
       --text: #e5eefb;
       --dim: #6b7fa0;
       --card: rgba(14,20,36,0.8);
-      --border: rgba(0,212,255,0.1);
-      --glow: 0 0 24px rgba(0,212,255,0.12);
+      --border: rgba(0,212,255,0.15);
+      --glow: 0 0 24px rgba(0,212,255,0.2);
       --green: #00FF9C;
       --red: #FF4D4D;
       --warn: #FFB800;
+      --pink: #FF3D9A;
     }
+    html { scroll-behavior: smooth; }
     body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
     a { color: var(--primary); text-decoration: none; }
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
 
-    /* ── Aurora ── */
-    .aurora { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-    .aurora div { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.3; will-change: transform; }
-    .a1 { width: 900px; height: 420px; background: radial-gradient(ellipse, rgba(0,212,255,0.7), transparent 60%); top: -8%; left: -8%; animation: d1 22s ease-in-out infinite; }
-    .a2 { width: 650px; height: 320px; background: radial-gradient(ellipse, rgba(30,144,255,0.55), transparent 60%); bottom: -12%; right: -6%; animation: d2 28s ease-in-out infinite; }
-    .a3 { width: 500px; height: 260px; background: radial-gradient(ellipse, rgba(0,212,255,0.35), transparent 60%); top: 35%; left: 25%; animation: d3 32s ease-in-out infinite; }
-    @keyframes d1 { 0%,100%{ transform: translate(-15%,-8%) rotate(-6deg); } 50%{ transform: translate(18%,12%) rotate(8deg); } }
-    @keyframes d2 { 0%,100%{ transform: translate(15%,8%) rotate(4deg); } 50%{ transform: translate(-22%,-12%) rotate(-9deg); } }
-    @keyframes d3 { 0%,100%{ transform: translate(0,15%) rotate(-7deg); } 50%{ transform: translate(-20%,-18%) rotate(5deg); } }
+    /* Background glow effects */
+    .bg-glow { position: fixed; pointer-events: none; z-index: 0; filter: blur(120px); opacity: 0.4; }
+    .bg-glow-1 { width: 600px; height: 600px; background: var(--primary); top: -200px; right: -100px; }
+    .bg-glow-2 { width: 500px; height: 500px; background: var(--pink); bottom: 20%; left: -150px; opacity: 0.2; }
+    .bg-glow-3 { width: 400px; height: 400px; background: var(--green); top: 50%; right: 10%; opacity: 0.15; }
 
-    /* ── Sweep ── */
-    @keyframes sweep { 0%{ transform: translateX(-120%) skewX(-16deg); opacity:0; } 15%{ opacity:.6; } 100%{ transform: translateX(280%) skewX(-16deg); opacity:0; } }
+    /* Nav */
+    nav { padding: 20px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,15,28,0.8); border-bottom: 1px solid var(--border); }
+    nav .row { display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
+    .logo img { width: 32px; height: 32px; border-radius: 6px; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: var(--silver); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--primary); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #001020; box-shadow: var(--glow); }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 36px rgba(0,212,255,0.5); }
+    .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--primary); }
+    .btn-lg { padding: 16px 32px; font-size: 16px; }
 
-    /* ── Shared ── */
-    .badge { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); padding: 7px 18px; border-radius: 50px; font-size: .78rem; color: var(--primary); font-weight: 600; backdrop-filter: blur(12px); }
-    .badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 8px var(--primary); }
-    .label { font-size: .7rem; color: var(--primary); text-transform: uppercase; letter-spacing: .2em; font-weight: 700; margin-bottom: 10px; }
-    .heading { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; line-height: 1.15; margin-bottom: 16px; }
-    .sub { font-size: 1.05rem; color: var(--dim); max-width: 560px; line-height: 1.7; }
-    .accent { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    /* Hero */
+    .hero { padding: 100px 0 80px; text-align: center; position: relative; }
+    .pre-headline { display: inline-block; padding: 6px 14px; border-radius: 100px; background: rgba(0,212,255,0.1); border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--primary); letter-spacing: 1px; margin-bottom: 24px; }
+    h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; background: linear-gradient(135deg, #fff, var(--primary) 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    h1 .highlight { background: linear-gradient(135deg, var(--green), var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .sub { font-size: 19px; color: var(--silver); max-width: 720px; margin: 0 auto 36px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+    .guarantee { font-size: 13px; color: var(--green); margin-top: 16px; font-weight: 600; }
 
-    .btn-solid { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--bg); font-weight: 800; font-size: 1rem; padding: 15px 32px; border-radius: 54px; border: none; cursor: pointer; transition: all .22s; box-shadow: 0 0 36px rgba(0,212,255,0.35); }
-    .btn-solid:hover { transform: scale(1.04); box-shadow: 0 0 52px rgba(0,212,255,0.5); }
-    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1.5px solid var(--primary); color: var(--primary); font-weight: 700; font-size: 1rem; padding: 14px 30px; border-radius: 54px; cursor: pointer; transition: all .22s; }
-    .btn-outline:hover { background: rgba(0,212,255,0.08); box-shadow: 0 0 20px rgba(0,212,255,0.25); }
+    /* Hero stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); }
+    .stat { text-align: center; }
+    .stat-num { font-size: 36px; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+    .stat-label { font-size: 12px; color: var(--silver); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 8px; }
 
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 24px; backdrop-filter: blur(14px); box-shadow: var(--glow); transition: all .25s; }
-    .card:hover { border-color: rgba(0,212,255,0.25); box-shadow: 0 0 36px rgba(0,212,255,0.18); transform: translateY(-3px); }
+    /* Sections */
+    section { padding: 80px 0; position: relative; }
+    .section-tag { display: inline-block; padding: 4px 12px; border-radius: 100px; background: rgba(255,61,154,0.1); border: 1px solid rgba(255,61,154,0.3); font-size: 11px; font-weight: 700; color: var(--pink); letter-spacing: 1.5px; margin-bottom: 16px; }
+    h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--silver); max-width: 700px; margin-bottom: 48px; }
 
-    /* ═══ HERO ═══ */
-    .hero { padding: 110px 0 80px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: -20% auto -20% -20%; width: 32%; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.18), rgba(255,255,255,0.07), transparent); animation: sweep 5.5s linear infinite; pointer-events: none; z-index: 1; }
-    .hero-logo { filter: drop-shadow(0 0 24px rgba(0,212,255,0.5)); margin-bottom: 28px; border-radius: 16px; }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 900; line-height: 1.08; margin-bottom: 18px; }
-    .hero .sub { margin: 0 auto 14px; }
-    .hero .detail { font-size: .92rem; color: var(--dim); max-width: 580px; margin: 0 auto 36px; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .hero-note { margin-top: 16px; font-size: .82rem; color: var(--dim); }
+    /* Problem section */
+    .problem { background: linear-gradient(180deg, transparent, rgba(255,77,77,0.05)); border-top: 1px solid rgba(255,77,77,0.15); border-bottom: 1px solid rgba(255,77,77,0.15); }
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .problem-card { padding: 24px; background: rgba(255,77,77,0.05); border: 1px solid rgba(255,77,77,0.2); border-radius: 16px; }
+    .problem-card .icon { font-size: 32px; margin-bottom: 12px; }
+    .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .problem-card p { font-size: 14px; color: var(--silver); }
 
-    /* ═══ PRICING V2 ═══ */
-    .pricing-v2 { padding: 90px 0 60px; }
-    .pricing-v2 .price-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
-    .pricing-v2 .price-card { padding: 32px 28px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-    .pricing-v2 .price-card.pop { border: 1.5px solid var(--primary); box-shadow: 0 0 48px rgba(0,212,255,0.2), inset 0 0 60px rgba(0,212,255,0.03); transform: scale(1.04); z-index: 2; }
-    .pricing-v2 .pop-badge { position: absolute; top: 0; left: 0; right: 0; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--bg); text-align: center; font-size: .65rem; font-weight: 800; padding: 6px 0; letter-spacing: .18em; text-transform: uppercase; }
-    .pricing-v2 .price-tier { font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; color: var(--silver); font-weight: 700; }
-    .pricing-v2 .price-team { font-size: .78rem; color: var(--primary); font-weight: 600; margin: 4px 0 2px; }
-    .pricing-v2 .price-amt { font-size: 2.6rem; font-weight: 900; margin: 8px 0 4px; }
-    .pricing-v2 .price-amt span { font-size: .85rem; color: var(--dim); font-weight: 500; }
-    .pricing-v2 .price-desc { font-size: .82rem; color: var(--dim); margin-bottom: 18px; line-height: 1.5; min-height: 48px; }
-    .pricing-v2 .price-list { list-style: none; margin-bottom: 24px; flex: 1; }
-    .pricing-v2 .price-list li { padding: 6px 0; font-size: .82rem; color: var(--dim); border-bottom: 1px solid rgba(0,212,255,0.05); }
-    .pricing-v2 .price-list li::before { content: '✓ '; color: var(--green); font-weight: 700; }
-    .pricing-v2 .price-includes { font-size: .72rem; color: var(--primary); font-weight: 600; margin-bottom: 8px; padding-top: 8px; border-top: 1px solid rgba(0,212,255,0.1); }
-    .pricing-v2 .price-btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 16px; font-weight: 800; font-size: .88rem; transition: all .22s; cursor: pointer; border: none; margin-top: auto; }
+    /* Pillars */
+    .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .pillar { padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); transition: all 0.3s; }
+    .pillar:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: var(--glow); }
+    .pillar .icon { font-size: 40px; margin-bottom: 16px; }
+    .pillar h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
+    .pillar p { font-size: 15px; color: var(--silver); margin-bottom: 16px; }
+    .pillar-features { list-style: none; }
+    .pillar-features li { font-size: 13px; color: var(--silver); margin-bottom: 6px; padding-left: 20px; position: relative; }
+    .pillar-features li::before { content: "✓"; color: var(--green); position: absolute; left: 0; font-weight: 700; }
 
-    .why-switch { padding: 70px 0; }
-    .why-switch .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; max-width: 800px; }
-    .why-switch .compare-card { padding: 28px; }
-    .why-switch .compare-card.old { border-left: 3px solid var(--red); }
-    .why-switch .compare-card.new { border-left: 3px solid var(--green); }
-    .why-switch .compare-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: 12px; }
-    .why-switch .compare-card li { padding: 5px 0; font-size: .85rem; color: var(--dim); list-style: none; }
-    .why-switch .compare-card.old li::before { content: '✗ '; color: var(--red); font-weight: 700; }
-    .why-switch .compare-card.new li::before { content: '✓ '; color: var(--green); font-weight: 700; }
+    /* How it works */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; counter-reset: step; }
+    .step { padding: 28px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; position: relative; counter-increment: step; }
+    .step::before { content: counter(step); position: absolute; top: -16px; left: 24px; width: 32px; height: 32px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #001020; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; box-shadow: var(--glow); }
+    .step h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; margin-top: 8px; }
+    .step p { font-size: 13px; color: var(--silver); }
 
-    .migration { padding: 50px 0 70px; text-align: center; }
-    .migration .crm-logos { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin: 24px 0; }
-    .migration .crm-tag { background: var(--card); border: 1px solid var(--border); padding: 10px 22px; border-radius: 12px; font-size: .88rem; font-weight: 600; color: var(--silver); }
+    /* Demo callout */
+    .demo-callout { padding: 48px; background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,61,154,0.06)); border: 1px solid var(--border); border-radius: 24px; text-align: center; backdrop-filter: blur(20px); }
+    .demo-callout .label { font-size: 12px; font-weight: 700; color: var(--pink); letter-spacing: 1.5px; margin-bottom: 12px; }
+    .demo-callout h3 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .demo-callout .case-study { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 28px 0; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .case-stat { padding: 20px; background: rgba(0,0,0,0.3); border-radius: 12px; }
+    .case-stat .num { font-size: 26px; font-weight: 900; line-height: 1; }
+    .case-stat.red .num { color: var(--red); }
+    .case-stat.green .num { color: var(--green); }
+    .case-stat.cyan .num { color: var(--primary); }
+    .case-stat .lbl { font-size: 11px; color: var(--silver); text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px; }
 
-    @media(max-width:960px) {
-      .pricing-v2 .price-grid { grid-template-columns: repeat(2, 1fr); }
-      .pricing-v2 .price-card.pop { transform: scale(1); }
-    }
-    @media(max-width:600px) {
-      .pricing-v2 .price-grid { grid-template-columns: 1fr; }
-      .why-switch .compare-grid { grid-template-columns: 1fr; }
-    }
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+    .price-card { padding: 36px 28px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); position: relative; transition: all 0.3s; }
+    .price-card.featured { border-color: var(--primary); box-shadow: var(--glow); transform: scale(1.03); }
+    .price-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #001020; padding: 4px 14px; border-radius: 100px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
+    .price-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+    .price-card .tagline { font-size: 13px; color: var(--silver); margin-bottom: 20px; }
+    .price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 24px; }
+    .price-num { font-size: 48px; font-weight: 900; }
+    .price-per { font-size: 14px; color: var(--silver); }
+    .price-features { list-style: none; margin-bottom: 28px; }
+    .price-features li { font-size: 14px; padding: 8px 0; padding-left: 24px; position: relative; border-bottom: 1px solid var(--border); }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li::before { content: "✓"; color: var(--green); position: absolute; left: 0; font-weight: 700; }
 
-    /* ═══ STATS ═══ */
-    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 18px; margin: -36px 0 70px; }
-    .stat { text-align: center; padding: 28px 20px; }
-    .stat-val { font-size: 2.4rem; font-weight: 900; }
-    .stat-lbl { font-size: .72rem; color: var(--dim); text-transform: uppercase; letter-spacing: .13em; margin-top: 5px; }
+    /* Guarantee */
+    .guarantee-box { margin-top: 48px; padding: 32px; background: linear-gradient(135deg, rgba(0,255,156,0.08), rgba(0,212,255,0.04)); border: 1px solid rgba(0,255,156,0.3); border-radius: 20px; text-align: center; }
+    .guarantee-box .badge { font-size: 36px; margin-bottom: 12px; }
+    .guarantee-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--green); }
+    .guarantee-box p { color: var(--silver); max-width: 560px; margin: 0 auto; }
 
-    /* ═══ PROBLEM ═══ */
-    .problem { padding: 70px 0; }
-    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 18px; margin-top: 36px; }
-    .problem-item { padding: 28px; border-left: 3px solid var(--red); }
-    .problem-item h4 { font-size: .95rem; font-weight: 700; margin-bottom: 6px; }
-    .problem-item p { font-size: .85rem; color: var(--dim); }
+    /* CTA */
+    .final-cta { padding: 80px 0; text-align: center; background: linear-gradient(180deg, transparent, rgba(0,212,255,0.05)); }
 
-    /* ═══ SOLUTION ═══ */
-    .solution { padding: 70px 0; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 22px; margin-top: 36px; counter-reset: step; }
-    .step { padding: 32px 28px; position: relative; counter-increment: step; }
-    .step::before { content: counter(step); position: absolute; top: 28px; right: 24px; font-size: 3rem; font-weight: 900; color: rgba(0,212,255,0.08); line-height: 1; }
-    .step h4 { font-size: 1rem; font-weight: 800; margin-bottom: 8px; color: var(--primary); }
-    .step p { font-size: .88rem; color: var(--dim); }
+    /* Footer */
+    footer { padding: 48px 0 32px; border-top: 1px solid var(--border); text-align: center; color: var(--dim); font-size: 13px; }
+    footer a { margin: 0 12px; color: var(--silver); }
 
-    /* ═══ FEATURES ═══ */
-    .features { padding: 70px 0; }
-    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px; margin-top: 36px; }
-    .feat { padding: 32px; }
-    .feat-icon { width: 52px; height: 52px; border-radius: 16px; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 18px; }
-    .feat h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; }
-    .feat p { font-size: .88rem; color: var(--dim); }
-
-    /* ═══ COMMAND CENTER ═══ */
-    .command { padding: 70px 0; text-align: center; }
-    .cmd-preview { margin-top: 40px; padding: 36px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; }
-    .cmd-metric { padding: 28px; text-align: center; }
-    .cmd-metric .stat-val { font-size: 2rem; }
-
-    /* ═══ RESULTS ═══ */
-    .results { padding: 70px 0; }
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 22px; margin-top: 36px; }
-    .result-card { padding: 36px; text-align: center; }
-    .result-card .stat-val { font-size: 2.8rem; margin-bottom: 8px; }
-    .result-card p { font-size: .9rem; color: var(--dim); }
-
-    /* ═══ PRICING ═══ */
-    .pricing { padding: 70px 0; }
-    .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 22px; margin-top: 36px; }
-    .price-card { padding: 36px; position: relative; overflow: hidden; }
-    .price-card.pop { border-color: var(--primary); box-shadow: 0 0 44px rgba(0,212,255,0.2); }
-    .price-card.pop::after { content: 'MOST POPULAR'; position: absolute; top: 18px; right: -32px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--bg); font-size: .6rem; font-weight: 800; padding: 4px 42px; transform: rotate(45deg); letter-spacing: .12em; }
-    .price-tier { font-size: .72rem; text-transform: uppercase; letter-spacing: .16em; color: var(--silver); font-weight: 600; }
-    .price-amt { font-size: 2.8rem; font-weight: 900; margin: 10px 0 20px; }
-    .price-amt span { font-size: .95rem; color: var(--dim); font-weight: 500; }
-    .price-list { list-style: none; margin-bottom: 28px; }
-    .price-list li { padding: 7px 0; font-size: .88rem; color: var(--dim); border-bottom: 1px solid rgba(0,212,255,0.05); }
-    .price-list li::before { content: '✓ '; color: var(--green); font-weight: 700; }
-    .price-btn { display: block; width: 100%; text-align: center; padding: 14px; border-radius: 16px; font-weight: 800; font-size: .9rem; transition: all .22s; cursor: pointer; border: none; }
-
-    /* ═══ CTA ═══ */
-    .final-cta { padding: 80px 0 100px; text-align: center; }
-
-    /* ═══ FOOTER ═══ */
-    footer { border-top: 1px solid var(--border); padding: 36px 0; text-align: center; font-size: .82rem; color: var(--dim); }
-
-    @media(max-width:768px) {
-      .hero { padding: 70px 0 50px; }
-      .stats { margin: -16px 0 40px; }
-      .hero-btns { flex-direction: column; align-items: center; }
+    @media (max-width: 768px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .nav-links a:not(.btn) { display: none; }
+      .demo-callout .case-study { grid-template-columns: 1fr; }
+      .price-card.featured { transform: none; }
     }
   </style>
 </head>
 <body>
 
-<div class="aurora"><div class="a1"></div><div class="a2"></div><div class="a3"></div></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
 
-<!-- ═══ HERO ═══ -->
+<nav>
+  <div class="container row">
+    <div class="logo">
+      <img src="claimlogic-logo.jpg" alt="ClaimLogic">
+      <span>ClaimLogic</span>
+    </div>
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://trustman-crm-production.up.railway.app" class="btn btn-primary">Login</a>
+    </div>
+  </div>
+</nav>
+
 <section class="hero">
   <div class="container">
-    <img src="claimlogic-logo.jpg" alt="ClaimLogic - AI Powered Claim Command Center" width="900" style="max-width:95%" class="hero-logo">
-    <p style="font-size:1.2rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-top:18px;margin-bottom:8px"><span class="accent">Built on Logic.</span> Designed to Win.</p>
-    <h1 style="font-size:clamp(1.6rem,4vw,2.4rem)">This isn't <em>only</em> a CRM. <span class="accent">It's a Command Center.</span></h1>
-    <p class="detail" style="margin-top:12px">ClaimLogic reads your scope, finds missing items, writes supplements, and runs your claim process automatically.</p>
-    <div class="hero-btns">
-      <a href="https://web-production-4fb20.up.railway.app/register" class="btn-solid">Start 7-Day Free Trial →</a>
-      <a href="#demo" class="btn-outline">See It In Action</a>
+    <div class="pre-headline">⚡ AI SUPPLEMENT RECOVERY FOR ROOFERS</div>
+    <h1>Stop Leaving<br/><span class="highlight">$5,000+</span> on Every Claim</h1>
+    <p class="sub">ClaimLogic reads the carrier scope, finds every missed line item, calculates the supplement, and emails the adjuster — in 90 seconds. The supplement engine that pays for itself on day one.</p>
+    <div class="cta-row">
+      <a href="#pricing" class="btn btn-primary btn-lg">Start 14-Day Free Trial →</a>
+      <a href="#demo" class="btn btn-ghost btn-lg">Watch 2-Min Demo</a>
     </div>
-    <p class="hero-note">Starting at $199/mo · No credit card required</p>
+    <div class="guarantee">✓ Find $5K in your first month or it's free</div>
+
+    <div class="stats" style="margin-top: 60px;">
+      <div class="stat">
+        <div class="stat-num">$5,200</div>
+        <div class="stat-label">Avg Recovery / Claim</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">90s</div>
+        <div class="stat-label">From Scope to Sent</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">87%</div>
+        <div class="stat-label">Supplement Win Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10x</div>
+        <div class="stat-label">ROI in Month One</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ═══ STATS ═══ -->
-<div class="container">
-  <div class="stats">
-    <div class="card stat"><div class="stat-val" style="color:var(--green)">$12K+</div><div class="stat-lbl">Avg Revenue Recovered Per Job</div></div>
-    <div class="card stat"><div class="stat-val" style="color:var(--primary)">94%</div><div class="stat-lbl">Supplement Approval Rate</div></div>
-    <div class="card stat"><div class="stat-val">3 min</div><div class="stat-lbl">Scope Analysis Time</div></div>
-    <div class="card stat"><div class="stat-val" style="color:var(--primary)">24/7</div><div class="stat-lbl">AI Claim Intelligence</div></div>
-  </div>
-</div>
-
-<!-- ═══ PROBLEM ═══ -->
 <section class="problem">
   <div class="container">
-    <div class="label">The Problem</div>
-    <h2 class="heading">You're Losing Money on Every Claim.</h2>
-    <p class="sub">Most roofing companies leave thousands on the table because they don't have the tools to catch what adjusters miss.</p>
+    <h2>The Truth About Insurance Claims</h2>
+    <p class="section-sub">Every claim that crosses your desk is leaking money. You know it. The adjusters know it. Here's exactly how:</p>
     <div class="problem-grid">
-      <div class="card problem-item"><h4>Missed Line Items</h4><p>Adjusters routinely omit starter, ice & water, drip edge, ventilation, and flashing. If you don't catch it, you don't get paid.</p></div>
-      <div class="card problem-item"><h4>Slow Supplements</h4><p>Writing supplement letters takes hours. Most companies skip it entirely — and lose $3K–$15K per job.</p></div>
-      <div class="card problem-item"><h4>Disorganized Claims</h4><p>Paperwork scattered across email, phones, and filing cabinets. No visibility. No control.</p></div>
-      <div class="card problem-item"><h4>Too Many Manual Steps</h4><p>Manual data entry, manual follow-ups, manual scope review. Every manual step is a leak in your revenue.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SOLUTION ═══ -->
-<section class="solution">
-  <div class="container">
-    <div class="label">The Solution</div>
-    <h2 class="heading">ClaimLogic <span class="accent">Runs Your Claims</span> for You.</h2>
-    <p class="sub">Four steps. Fully automated. From scope upload to payment.</p>
-    <div class="steps">
-      <div class="card step"><h4>Reads Your Scope</h4><p>Upload any insurance estimate. ClaimLogic's AI parses every line item, measurement, and claim detail instantly.</p></div>
-      <div class="card step"><h4>Detects Missing Items</h4><p>24 built-in claim rules scan for omitted items — starter, ridge cap, ice & water, pipe boots, flashing, steep charges, and more.</p></div>
-      <div class="card step"><h4>Generates Supplements</h4><p>One click builds a professional supplement letter with code references, justifications, and estimated recovery amount.</p></div>
-      <div class="card step"><h4>Manages the Claim</h4><p>Track every job from lead to payment. Pipeline, milestones, photos, documents, contracts, invoicing — all in one command center.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FEATURES ═══ -->
-<section class="features">
-  <div class="container">
-    <div class="label">Platform</div>
-    <h2 class="heading">Built for Claims. Powered by AI.</h2>
-    <p class="sub">Every feature designed to close more claims and recover more money.</p>
-    <div class="feat-grid">
-      <div class="card feat"><div class="feat-icon">🧠</div><h4>AI Scope Analyzer</h4><p>Instantly parse insurance estimates. Extract line items, claim data, measurements, and carrier info.</p></div>
-      <div class="card feat"><div class="feat-icon">🔍</div><h4>Missing Item Detection</h4><p>AI + rule engine flags omitted items with confidence scores, code references, and revenue estimates.</p></div>
-      <div class="card feat"><div class="feat-icon">📄</div><h4>Supplement Generator</h4><p>Auto-generate professional supplement letters ready to send to the adjuster. One click.</p></div>
-      <div class="card feat"><div class="feat-icon">📷</div><h4>Photo Intelligence</h4><p>AI analyzes roof photos to identify damage, flag components, and recommend what documentation is missing.</p></div>
-      <div class="card feat"><div class="feat-icon">🌩️</div><h4>Storm Tracker</h4><p>Real-time hail maps with impact zones, street-level zoom, and size data. Know where to knock first.</p></div>
-      <div class="card feat"><div class="feat-icon">⚡</div><h4>Claim Automation</h4><p>Automated pipeline, milestone tracking, adjuster communication, and payment follow-up.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ COMMAND CENTER ═══ -->
-<section class="command" id="demo">
-  <div class="container">
-    <div class="label">Command Center</div>
-    <h2 class="heading">Your Business. <span class="accent">One Screen.</span></h2>
-    <p class="sub" style="margin:0 auto">Real-time visibility into every claim, every dollar, and every team member — from one premium dashboard.</p>
-    <div class="card cmd-preview">
-      <div class="cmd-metric"><div class="stat-val" style="color:var(--primary)">47</div><div class="stat-lbl">Claims in Progress</div></div>
-      <div class="cmd-metric"><div class="stat-val" style="color:var(--green)">$284K</div><div class="stat-lbl">Revenue Recovered</div></div>
-      <div class="cmd-metric"><div class="stat-val" style="color:var(--warn)">12</div><div class="stat-lbl">Supplements Pending</div></div>
-      <div class="cmd-metric"><div class="stat-val">94%</div><div class="stat-lbl">Approval Rate</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ RESULTS ═══ -->
-<section class="results">
-  <div class="container">
-    <div class="label">Results</div>
-    <h2 class="heading">Built for High-Profit Companies.</h2>
-    <p class="sub">Companies using ClaimLogic recover more revenue, close claims faster, and eliminate manual work.</p>
-    <div class="results-grid">
-      <div class="card result-card"><div class="stat-val" style="color:var(--green)">+38%</div><p>Increase in claim payouts through AI-detected supplement opportunities</p></div>
-      <div class="card result-card"><div class="stat-val" style="color:var(--primary)">4x Faster</div><p>Supplement generation — from hours to minutes with automated letter writing</p></div>
-      <div class="card result-card"><div class="stat-val" style="color:var(--warn)">-80%</div><p>Reduction in manual claim management tasks through full automation</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ PRICING ═══ -->
-<section class="pricing-v2" id="pricing">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:8px">
-      <div class="label">Pricing</div>
-      <h2 class="heading">ClaimLogic Pricing</h2>
-      <p style="font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:12px">AI-Powered Claim Command Center for Roofing Companies</p>
-      <p class="sub" style="margin:0 auto;max-width:640px">Choose the plan based on the size of your company. Every plan includes the core ClaimLogic system. Pricing scales by team size, automation volume, AI usage, onboarding, and support level.</p>
-    </div>
-
-    <div class="price-grid">
-      <!-- STARTER -->
-      <div class="card price-card">
-        <div class="price-tier">Starter</div>
-        <div class="price-team">1–5 employees</div>
-        <div class="price-amt">$199<span>/mo</span></div>
-        <p class="price-desc">Best for small roofing companies ready to stop manually managing claims.</p>
-        <ul class="price-list">
-          <li>AI scope analysis</li>
-          <li>AI photo review</li>
-          <li>Claim management dashboard</li>
-          <li>Supplement draft generation</li>
-          <li>Adjuster email templates</li>
-          <li>Document storage</li>
-          <li>Basic onboarding</li>
-          <li>Up to 5 users</li>
-        </ul>
-        <a href="https://web-production-4fb20.up.railway.app/register" class="btn-outline price-btn" style="width:100%">Start Free Trial</a>
+      <div class="problem-card">
+        <div class="icon">🚫</div>
+        <h3>Omitted Line Items</h3>
+        <p>Drip edge missing 73% of the time. Starter strip 64%. Ice & water 41%. Adjusters bank on you not catching it.</p>
       </div>
+      <div class="problem-card">
+        <div class="icon">💸</div>
+        <h3>Short-Pay Tactics</h3>
+        <p>Steep charges undercounted. Detach/reset capped. O&P "doesn't apply." Each one quietly costs you $200–$1,500.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">📋</div>
+        <h3>Partial Replacements</h3>
+        <p>"Just patch the damaged slope" — even when shingles are discontinued. Killing your warranty and your margin.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">⏰</div>
+        <h3>No Time to Fight</h3>
+        <p>Writing supplements takes 2 hours. You're closing deals, running crews, and chasing balances. Adjusters know that.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- GROWTH -->
-      <div class="card price-card pop">
-        <div class="pop-badge">★ Most Popular</div>
-        <div style="margin-top:28px">
-          <div class="price-tier">Growth</div>
-          <div class="price-team">6–15 employees</div>
-          <div class="price-amt">$499<span>/mo</span></div>
-          <p class="price-desc">Best for roofing companies doing consistent claim volume and needing stronger automation.</p>
+<section id="how">
+  <div class="container">
+    <div class="section-tag">THE 4 PILLARS</div>
+    <h2>Built to Win Every Claim</h2>
+    <p class="section-sub">Four AI-powered systems working together. From scope to settlement.</p>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="icon">🎯</div>
+        <h3>AI Claim Scoring</h3>
+        <p>Every job graded 0-100 the moment it's added. Tells you exactly what's missing.</p>
+        <ul class="pillar-features">
+          <li>Approval likelihood score</li>
+          <li>Risk level (low/med/high/critical)</li>
+          <li>Data gap detection</li>
+          <li>Photo coverage analysis</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="icon">💰</div>
+        <h3>Missed Revenue Engine</h3>
+        <p>Scans carrier scopes, finds omitted items, calculates exact supplement amount.</p>
+        <ul class="pillar-features">
+          <li>50+ scored line items</li>
+          <li>Roof + siding coverage</li>
+          <li>Code, manufacturer, photo support</li>
+          <li>Priority-ranked opportunities</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="icon">🧠</div>
+        <h3>Carrier Pattern Learning</h3>
+        <p>Learns YOUR win rates with each carrier. Knows what State Farm denies, what Allstate omits.</p>
+        <ul class="pillar-features">
+          <li>Win-rate tracking per carrier</li>
+          <li>ZIP-level pricing data</li>
+          <li>Omission pattern detection</li>
+          <li>Gets smarter every claim</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="icon">⚡</div>
+        <h3>One-Click Supplements</h3>
+        <p>Branded PDFs, LKQ letters, emailed direct to adjusters. Done in 90 seconds.</p>
+        <ul class="pillar-features">
+          <li>LKQ full replacement letters</li>
+          <li>Missing-items supplements</li>
+          <li>Branded PDF generation</li>
+          <li>Direct email to adjuster</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="container">
+    <div class="demo-callout">
+      <div class="label">REAL CASE STUDY</div>
+      <h3>Kyle Smith Job — St. Louis, MO</h3>
+      <p style="color: var(--silver); margin-bottom: 12px;">Storm-damaged roof + siding. Carrier approved partial repair only.</p>
+      <div class="case-study">
+        <div class="case-stat red">
+          <div class="num">$19,200</div>
+          <div class="lbl">Carrier Approved</div>
         </div>
-        <p class="price-includes">Everything in Starter, plus:</p>
-        <ul class="price-list">
-          <li>Unlimited active claims</li>
-          <li>Automated supplement workflow</li>
-          <li>Auto-generated adjuster emails</li>
-          <li>Satellite measurement access</li>
-          <li>Storm tracking tools</li>
-          <li>CRM data migration</li>
-          <li>Up to 15 users</li>
+        <div class="case-stat cyan">
+          <div class="num">$4,200</div>
+          <div class="lbl">ClaimLogic Found Missing</div>
+        </div>
+        <div class="case-stat green">
+          <div class="num">$38,264</div>
+          <div class="lbl">Final Recovery (LKQ)</div>
+        </div>
+      </div>
+      <p style="font-size: 14px; color: var(--silver); margin-bottom: 24px;"><strong style="color: var(--green);">+$19,064 recovered.</strong> 90 seconds of work. One supplement letter. One email to the adjuster.</p>
+      <a href="#pricing" class="btn btn-primary btn-lg">Get This For Your Company →</a>
+    </div>
+  </div>
+</section>
+
+<section style="background: linear-gradient(180deg, transparent, rgba(0,212,255,0.03));">
+  <div class="container">
+    <h2>How It Works</h2>
+    <p class="section-sub">From upload to adjuster's inbox in under two minutes.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Upload Scope</h4>
+        <p>Drop the carrier's PDF. ClaimLogic extracts every line item automatically.</p>
+      </div>
+      <div class="step">
+        <h4>AI Analysis</h4>
+        <p>System scores the claim, flags missing items, references your prior win rates with this carrier.</p>
+      </div>
+      <div class="step">
+        <h4>One-Click Supplement</h4>
+        <p>Pick: missing items, LKQ full replacement, or carrier-specific demand letter. AI writes it.</p>
+      </div>
+      <div class="step">
+        <h4>Send to Adjuster</h4>
+        <p>Branded PDF + email goes straight to the adjuster. Logged to job timeline. Done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="container">
+    <div class="section-tag">SIMPLE PRICING</div>
+    <h2>Pays For Itself On Day One</h2>
+    <p class="section-sub">Every plan includes the AI claim scoring engine, missed revenue detection, and unlimited supplements. Pricing scales with your company size.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <div class="tagline">Solo or small operation</div>
+        <div class="price"><span class="price-num">$199</span><span class="price-per">/mo</span></div>
+        <ul class="price-features">
+          <li>1 user</li>
+          <li>25 jobs/month</li>
+          <li>AI Claim Scoring</li>
+          <li>Missed Revenue Detection</li>
+          <li>Branded Supplement PDFs</li>
+          <li>Email Adjuster Direct</li>
         </ul>
-        <a href="https://web-production-4fb20.up.railway.app/register" class="btn-solid price-btn" style="width:100%;justify-content:center">Start Free Trial</a>
+        <a href="https://trustman-crm-production.up.railway.app" class="btn btn-ghost" style="width:100%; justify-content:center;">Start Free Trial</a>
       </div>
 
-      <!-- PRO -->
-      <div class="card price-card">
-        <div class="price-tier">Pro</div>
-        <div class="price-team">16–40 employees</div>
-        <div class="price-amt">$899<span>/mo</span></div>
-        <p class="price-desc">Best for companies that want ClaimLogic operating like an AI back office.</p>
-        <p class="price-includes">Everything in Growth, plus:</p>
-        <ul class="price-list">
-          <li>Advanced AI employee workflows</li>
-          <li>Job profitability tracking</li>
-          <li>Crew labor cost tracking</li>
-          <li>Material invoice tracking</li>
-          <li>Supplier order workflow</li>
-          <li>Priority processing</li>
-          <li>Priority support</li>
-          <li>Up to 40 users</li>
+      <div class="price-card featured">
+        <h3>Growth</h3>
+        <div class="tagline">Most roofing companies</div>
+        <div class="price"><span class="price-num">$499</span><span class="price-per">/mo</span></div>
+        <ul class="price-features">
+          <li>5 users</li>
+          <li>Unlimited jobs</li>
+          <li>Everything in Starter</li>
+          <li>LKQ Full Replacement Letters</li>
+          <li>Carrier Pattern Learning</li>
+          <li>Win-Rate Analytics</li>
+          <li>Click & Sign Contracts</li>
         </ul>
-        <a href="https://web-production-4fb20.up.railway.app/register" class="btn-outline price-btn" style="width:100%">Start Free Trial</a>
+        <a href="https://trustman-crm-production.up.railway.app" class="btn btn-primary" style="width:100%; justify-content:center;">Start Free Trial</a>
       </div>
 
-      <!-- ENTERPRISE -->
-      <div class="card price-card">
-        <div class="price-tier">Enterprise</div>
-        <div class="price-team">40+ employees / multi-location</div>
-        <div class="price-amt" style="font-size:1.8rem;padding:12px 0">Custom Pricing</div>
-        <p class="price-desc">Built for large roofing companies, franchises, and high-volume claim operations.</p>
-        <p class="price-includes">Everything in Pro, plus:</p>
-        <ul class="price-list">
-          <li>Multi-location dashboards</li>
-          <li>Custom workflows</li>
+      <div class="price-card">
+        <h3>Pro</h3>
+        <div class="tagline">Multi-location & enterprise</div>
+        <div class="price"><span class="price-num">$899</span><span class="price-per">/mo</span></div>
+        <ul class="price-features">
+          <li>Unlimited users</li>
+          <li>Multi-location support</li>
+          <li>Everything in Growth</li>
+          <li>White-label PDFs</li>
           <li>Custom AI training</li>
-          <li>Dedicated onboarding</li>
-          <li>Dedicated support</li>
-          <li>Advanced reporting</li>
-          <li>Unlimited users available</li>
-          <li>White-label options available</li>
+          <li>Priority support</li>
+          <li>Dedicated success manager</li>
         </ul>
-        <a href="mailto:info@getclaimlogic.com" class="btn-outline price-btn" style="width:100%">Book a Demo</a>
+        <a href="https://trustman-crm-production.up.railway.app" class="btn btn-ghost" style="width:100%; justify-content:center;">Start Free Trial</a>
       </div>
+    </div>
+
+    <div class="guarantee-box">
+      <div class="badge">🛡️</div>
+      <h3>The $5,000 Guarantee</h3>
+      <p>If ClaimLogic doesn't help you recover at least <strong style="color: var(--green);">$5,000</strong> in supplements during your first month, your subscription is on us. No fine print. No exceptions. We're that confident.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ WHY SWITCH ═══ -->
-<section class="why-switch">
-  <div class="container">
-    <div class="label">The Math</div>
-    <h2 class="heading">Why Companies Switch to <span class="accent">ClaimLogic</span></h2>
-    <p class="sub">Most roofing companies are paying for a CRM, a supplement company, measurement tools, storm tracking, admin labor, and manual follow-up. ClaimLogic puts it all into one AI-powered command center.</p>
-    <div class="compare-grid">
-      <div class="card compare-card old">
-        <h4 style="color:var(--red)">❌ What You're Paying Now</h4>
-        <ul>
-          <li>10% to supplement companies</li>
-          <li>$300–$1,000/month for a basic CRM</li>
-          <li>Extra for measurements</li>
-          <li>Extra for storm tools</li>
-          <li>Extra for admin work</li>
-          <li>Hours of manual follow-up</li>
-        </ul>
-      </div>
-      <div class="card compare-card new">
-        <h4 style="color:var(--green)">✅ What You Get with ClaimLogic</h4>
-        <ul>
-          <li>One system — AI-powered claim automation</li>
-          <li>Supplements generated in minutes, not days</li>
-          <li>Built-in measurements & storm tracking</li>
-          <li>Automated adjuster follow-up</li>
-          <li>No percentage cuts on your claims</li>
-          <li>From scope to payment — fully managed</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ MIGRATION ═══ -->
-<section class="migration">
-  <div class="container">
-    <div class="label">Migration</div>
-    <h2 class="heading">Easy Migration</h2>
-    <p class="sub" style="margin:0 auto">Already using another CRM? We can migrate your current data into ClaimLogic so your company can keep operating without starting over.</p>
-    <div class="crm-logos">
-      <div class="crm-tag">AccuLynx</div>
-      <div class="crm-tag">JobNimbus</div>
-      <div class="crm-tag">JobProgress</div>
-      <div class="crm-tag">Salesforce</div>
-      <div class="crm-tag">Spreadsheets</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FINAL CTA ═══ -->
 <section class="final-cta">
   <div class="container">
-    <h2 class="heading">Stop Running Your Claims Manually.</h2>
-    <p class="sub" style="margin:0 auto 32px">Every missed supplement is revenue lost. ClaimLogic's AI finds what others miss.</p>
-    <div class="hero-btns">
-      <a href="https://web-production-4fb20.up.railway.app/register" class="btn-solid">Start Your Free Trial →</a>
-      <a href="mailto:info@getclaimlogic.com" class="btn-outline">Book a 15-Minute Demo</a>
+    <h2>Every Claim You Submit Without ClaimLogic<br/><span style="color: var(--red);">Costs You Money</span></h2>
+    <p class="section-sub" style="margin: 16px auto 32px;">Stop letting adjusters write your paycheck. Start your free trial in 60 seconds.</p>
+    <div class="cta-row">
+      <a href="https://trustman-crm-production.up.railway.app" class="btn btn-primary btn-lg">Start 14-Day Free Trial →</a>
+      <a href="mailto:info@getclaimlogic.com" class="btn btn-ghost btn-lg">Book Live Demo</a>
     </div>
-    <p class="hero-note">No credit card required · Cancel anytime</p>
+    <p style="margin-top: 20px; font-size: 13px; color: var(--dim);">No credit card required • Setup in 5 minutes • Cancel anytime</p>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container">
-    <p>&copy; 2026 ClaimLogic. AI-Powered Claim Command Center.</p>
-    <p style="margin-top:8px"><a href="mailto:info@getclaimlogic.com">info@getclaimlogic.com</a> · <a href="tel:6365417005">(636) 541-7005</a></p>
+    <div class="logo" style="justify-content: center; margin-bottom: 16px;">
+      <img src="claimlogic-logo.jpg" alt="ClaimLogic">
+      <span>ClaimLogic</span>
+    </div>
+    <p>Built for Roofers. Designed to Win.</p>
+    <div style="margin-top: 16px;">
+      <a href="https://trustman-crm-production.up.railway.app">Login</a>
+      <a href="mailto:info@getclaimlogic.com">Contact</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <p style="margin-top: 20px; font-size: 12px;">&copy; 2026 ClaimLogic. All rights reserved.</p>
   </div>
 </footer>
 
