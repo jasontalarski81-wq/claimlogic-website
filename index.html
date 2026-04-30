@@ -115,6 +115,66 @@
 
     /* Pricing */
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1280px; margin: 0 auto; }
+
+    /* Hero gleam/sweep light effect */
+    .hero { position: relative; overflow: hidden; }
+    .hero-glow {
+      position: absolute; top: 50%; left: 50%; width: 800px; height: 800px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    }
+    .hero-sweep {
+      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(105deg,
+        transparent 0%,
+        transparent 30%,
+        rgba(0,212,255,0.04) 45%,
+        rgba(0,212,255,0.18) 50%,
+        rgba(255,255,255,0.08) 52%,
+        rgba(0,212,255,0.18) 54%,
+        rgba(0,212,255,0.04) 60%,
+        transparent 75%,
+        transparent 100%);
+      pointer-events: none; z-index: 1;
+      animation: heroSweep 7s ease-in-out infinite;
+      filter: blur(2px);
+    }
+    @keyframes heroSweep {
+      0% { left: -60%; opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { left: 120%; opacity: 0; }
+    }
+    .hero .container { position: relative; z-index: 2; }
+
+    /* Section dividers — horizontal scan line */
+    section { position: relative; }
+    section.scan-divider::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.6), rgba(255,255,255,0.4), rgba(0,212,255,0.6), transparent);
+      animation: scanLine 8s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes scanLine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    /* Pricing card sheen on hover */
+    .price-card { position: relative; overflow: hidden; }
+    .price-card::after {
+      content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.15), transparent);
+      transform: skewX(-25deg); pointer-events: none;
+      transition: left 0.8s ease;
+    }
+    .price-card:hover::after { left: 125%; }
     .price-card { padding: 36px 28px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); position: relative; transition: all 0.3s; }
     .price-card.featured { border-color: var(--primary); box-shadow: var(--glow); transform: scale(1.03); }
     .price-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #001020; padding: 4px 14px; border-radius: 100px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
@@ -170,6 +230,8 @@
 </nav>
 
 <section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-sweep"></div>
   <div class="container">
     <div class="pre-headline">⚡ AI SUPPLEMENT RECOVERY FOR ROOFERS</div>
     <h1>Analyze Claims in <span class="highlight">Minutes.</span><br/>Supplements in <span class="highlight">90 Seconds.</span></h1>
@@ -230,7 +292,7 @@
   </div>
 </section>
 
-<section id="how">
+<section id="how" class="scan-divider">
   <div class="container">
     <div class="section-tag">THE 4 PILLARS</div>
     <h2>Built to Win Every Claim</h2>
@@ -284,7 +346,7 @@
   </div>
 </section>
 
-<section id="demo">
+<section id="demo" class="scan-divider">
   <div class="container">
     <div class="demo-callout">
       <div class="label">REAL CASE STUDY</div>
@@ -360,7 +422,7 @@
   </div>
 </section>
 
-<section id="pricing">
+<section id="pricing" class="scan-divider">
   <div class="container">
     <div class="section-tag">SIMPLE PRICING</div>
     <h2>Pays For Itself On Day One</h2>
