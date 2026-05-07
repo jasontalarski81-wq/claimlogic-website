@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClaimLogic — AI Supplement Recovery for Roofers</title>
-  <meta name="description" content="Stop leaving money on the table. ClaimLogic finds, calculates, and recovers every dollar your insurance carriers owe you. AI-powered supplements in 90 seconds.">
-  <meta property="og:title" content="ClaimLogic — Recover Every Dollar Your Carrier Owes You">
-  <meta property="og:description" content="The average roofer leaves $5,000+ on every claim. ClaimLogic finds it, writes the supplement, sends to adjuster — in 90 seconds.">
+  <title>ClaimLogic — The CRM Built for Insurance Roofing Companies</title>
+  <meta name="description" content="ClaimLogic is the all-in-one CRM built specifically for insurance roofing companies. Customer portal, roof measure, storm tracker, estimate builder, and automated adjuster emails — all in one platform.">
+  <meta property="og:title" content="ClaimLogic — Run Your Entire Roofing Company From One Platform">
+  <meta property="og:description" content="Customer portals, automated adjuster emails, roof measure, storm tracker, and estimates in minutes. Built for insurance restoration roofers.">
   <meta property="og:image" content="https://getclaimlogic.com/claimlogic-logo.jpg">
   <link rel="icon" type="image/jpeg" href="claimlogic-logo.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -33,13 +33,11 @@
     a { color: var(--primary); text-decoration: none; }
     .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
 
-    /* Background glow effects */
     .bg-glow { position: fixed; pointer-events: none; z-index: 0; filter: blur(120px); opacity: 0.4; }
     .bg-glow-1 { width: 600px; height: 600px; background: var(--primary); top: -200px; right: -100px; }
     .bg-glow-2 { width: 500px; height: 500px; background: var(--pink); bottom: 20%; left: -150px; opacity: 0.2; }
     .bg-glow-3 { width: 400px; height: 400px; background: var(--green); top: 50%; right: 10%; opacity: 0.15; }
 
-    /* Nav */
     nav { padding: 20px 0; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); background: rgba(10,15,28,0.8); border-bottom: 1px solid var(--border); }
     nav .row { display: flex; justify-content: space-between; align-items: center; }
     .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -0.5px; }
@@ -54,28 +52,30 @@
     .btn-ghost:hover { border-color: var(--primary); }
     .btn-lg { padding: 16px 32px; font-size: 16px; }
 
-    /* Hero */
-    .hero { padding: 100px 0 80px; text-align: center; position: relative; }
+    .hero { padding: 100px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: 50%; left: 50%; width: 800px; height: 800px; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 60%); pointer-events: none; z-index: 0; animation: pulseGlow 6s ease-in-out infinite; }
+    .hero-sweep { position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent 0%, transparent 30%, rgba(0,212,255,0.04) 45%, rgba(0,212,255,0.18) 50%, rgba(255,255,255,0.08) 52%, rgba(0,212,255,0.18) 54%, rgba(0,212,255,0.04) 60%, transparent 75%, transparent 100%); pointer-events: none; z-index: 1; animation: heroSweep 7s ease-in-out infinite; filter: blur(2px); }
+    .hero .container { position: relative; z-index: 2; }
+    @keyframes pulseGlow { 0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
+    @keyframes heroSweep { 0% { left: -60%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: 120%; opacity: 0; } }
+
     .pre-headline { display: inline-block; padding: 6px 14px; border-radius: 100px; background: rgba(0,212,255,0.1); border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--primary); letter-spacing: 1px; margin-bottom: 24px; }
     h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; background: linear-gradient(135deg, #fff, var(--primary) 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     h1 .highlight { background: linear-gradient(135deg, var(--green), var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .sub { font-size: 19px; color: var(--silver); max-width: 720px; margin: 0 auto 36px; }
+    .sub { font-size: 19px; color: var(--silver); max-width: 740px; margin: 0 auto 36px; }
     .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
     .guarantee { font-size: 13px; color: var(--green); margin-top: 16px; font-weight: 600; }
 
-    /* Hero stats */
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); }
     .stat { text-align: center; }
     .stat-num { font-size: 36px; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
     .stat-label { font-size: 12px; color: var(--silver); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 8px; }
 
-    /* Sections */
     section { padding: 80px 0; position: relative; }
     .section-tag { display: inline-block; padding: 4px 12px; border-radius: 100px; background: rgba(255,61,154,0.1); border: 1px solid rgba(255,61,154,0.3); font-size: 11px; font-weight: 700; color: var(--pink); letter-spacing: 1.5px; margin-bottom: 16px; }
     h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
     .section-sub { font-size: 17px; color: var(--silver); max-width: 700px; margin-bottom: 48px; }
 
-    /* Problem section */
     .problem { background: linear-gradient(180deg, transparent, rgba(255,77,77,0.05)); border-top: 1px solid rgba(255,77,77,0.15); border-bottom: 1px solid rgba(255,77,77,0.15); }
     .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .problem-card { padding: 24px; background: rgba(255,77,77,0.05); border: 1px solid rgba(255,77,77,0.2); border-radius: 16px; }
@@ -83,7 +83,6 @@
     .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .problem-card p { font-size: 14px; color: var(--silver); }
 
-    /* Pillars */
     .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .pillar { padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); transition: all 0.3s; }
     .pillar:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: var(--glow); }
@@ -93,15 +92,14 @@
     .pillar-features { list-style: none; }
     .pillar-features li { font-size: 13px; color: var(--silver); margin-bottom: 6px; padding-left: 20px; position: relative; }
     .pillar-features li::before { content: "✓"; color: var(--green); position: absolute; left: 0; font-weight: 700; }
+    .coming-soon-badge { display: inline-block; font-size: 10px; font-weight: 700; color: var(--warn); background: rgba(255,184,0,0.12); border: 1px solid rgba(255,184,0,0.3); border-radius: 6px; padding: 2px 7px; letter-spacing: 0.8px; margin-left: 6px; vertical-align: middle; }
 
-    /* How it works */
     .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; counter-reset: step; }
     .step { padding: 28px 24px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; position: relative; counter-increment: step; }
     .step::before { content: counter(step); position: absolute; top: -16px; left: 24px; width: 32px; height: 32px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #001020; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; box-shadow: var(--glow); }
     .step h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; margin-top: 8px; }
     .step p { font-size: 13px; color: var(--silver); }
 
-    /* Demo callout */
     .demo-callout { padding: 48px; background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,61,154,0.06)); border: 1px solid var(--border); border-radius: 24px; text-align: center; backdrop-filter: blur(20px); }
     .demo-callout .label { font-size: 12px; font-weight: 700; color: var(--pink); letter-spacing: 1.5px; margin-bottom: 12px; }
     .demo-callout h3 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
@@ -114,70 +112,14 @@
     .case-stat .lbl { font-size: 11px; color: var(--silver); text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px; }
 
     /* Pricing */
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 1280px; margin: 0 auto; }
-
-    /* Hero gleam/sweep light effect */
-    .hero { position: relative; overflow: hidden; }
-    .hero-glow {
-      position: absolute; top: 50%; left: 50%; width: 800px; height: 800px;
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 60%);
-      pointer-events: none; z-index: 0;
-      animation: pulseGlow 6s ease-in-out infinite;
-    }
-    @keyframes pulseGlow {
-      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-    }
-    .hero-sweep {
-      position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
-      background: linear-gradient(105deg,
-        transparent 0%,
-        transparent 30%,
-        rgba(0,212,255,0.04) 45%,
-        rgba(0,212,255,0.18) 50%,
-        rgba(255,255,255,0.08) 52%,
-        rgba(0,212,255,0.18) 54%,
-        rgba(0,212,255,0.04) 60%,
-        transparent 75%,
-        transparent 100%);
-      pointer-events: none; z-index: 1;
-      animation: heroSweep 7s ease-in-out infinite;
-      filter: blur(2px);
-    }
-    @keyframes heroSweep {
-      0% { left: -60%; opacity: 0; }
-      15% { opacity: 1; }
-      85% { opacity: 1; }
-      100% { left: 120%; opacity: 0; }
-    }
-    .hero .container { position: relative; z-index: 2; }
-
-    /* Section dividers — horizontal scan line */
-    section { position: relative; }
-    section.scan-divider::before {
-      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.6), rgba(255,255,255,0.4), rgba(0,212,255,0.6), transparent);
-      animation: scanLine 8s linear infinite;
-      pointer-events: none;
-    }
-    @keyframes scanLine {
-      0% { left: -100%; }
-      100% { left: 100%; }
-    }
-
-    /* Pricing card sheen on hover */
-    .price-card { position: relative; overflow: hidden; }
-    .price-card::after {
-      content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(0,212,255,0.15), transparent);
-      transform: skewX(-25deg); pointer-events: none;
-      transition: left 0.8s ease;
-    }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
+    .price-card { position: relative; overflow: hidden; padding: 36px 28px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); transition: all 0.3s; }
+    .price-card::after { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.15), transparent); transform: skewX(-25deg); pointer-events: none; transition: left 0.8s ease; }
     .price-card:hover::after { left: 125%; }
-    .price-card { padding: 36px 28px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); position: relative; transition: all 0.3s; }
-    .price-card.featured { border-color: var(--primary); box-shadow: var(--glow); transform: scale(1.03); }
+    .price-card.featured { border-color: var(--primary); box-shadow: var(--glow); }
     .price-card.featured::before { content: "MOST POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #001020; padding: 4px 14px; border-radius: 100px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
+    .price-card.addon { border-color: rgba(255,184,0,0.4); }
+    .price-card.addon::before { content: "ADD-ON"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--warn), #ff9500); color: #001020; padding: 4px 14px; border-radius: 100px; font-size: 10px; font-weight: 800; letter-spacing: 1.5px; }
     .price-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
     .price-card .tagline { font-size: 13px; color: var(--silver); margin-bottom: 20px; }
     .price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 24px; }
@@ -188,24 +130,24 @@
     .price-features li:last-child { border-bottom: none; }
     .price-features li::before { content: "✓"; color: var(--green); position: absolute; left: 0; font-weight: 700; }
 
-    /* Guarantee */
     .guarantee-box { margin-top: 48px; padding: 32px; background: linear-gradient(135deg, rgba(0,255,156,0.08), rgba(0,212,255,0.04)); border: 1px solid rgba(0,255,156,0.3); border-radius: 20px; text-align: center; }
     .guarantee-box .badge { font-size: 36px; margin-bottom: 12px; }
     .guarantee-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--green); }
     .guarantee-box p { color: var(--silver); max-width: 560px; margin: 0 auto; }
 
-    /* CTA */
     .final-cta { padding: 80px 0; text-align: center; background: linear-gradient(180deg, transparent, rgba(0,212,255,0.05)); }
 
-    /* Footer */
     footer { padding: 48px 0 32px; border-top: 1px solid var(--border); text-align: center; color: var(--dim); font-size: 13px; }
     footer a { margin: 0 12px; color: var(--silver); }
+
+    section.scan-divider::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.6), rgba(255,255,255,0.4), rgba(0,212,255,0.6), transparent); animation: scanLine 8s linear infinite; pointer-events: none; }
+    @keyframes scanLine { 0% { left: -100%; } 100% { left: 100%; } }
 
     @media (max-width: 768px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
       .nav-links a:not(.btn) { display: none; }
       .demo-callout .case-study { grid-template-columns: 1fr; }
-      .price-card.featured { transform: none; }
+      .pricing-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -222,7 +164,7 @@
       <span>ClaimLogic</span>
     </div>
     <div class="nav-links">
-      <a href="#how">How It Works</a>
+      <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact" class="btn btn-ghost">Sign Up</a>
       <a href="https://trustman-crm-production.up.railway.app" target="_blank" class="btn btn-primary">Sign In</a>
@@ -234,31 +176,31 @@
   <div class="hero-glow"></div>
   <div class="hero-sweep"></div>
   <div class="container">
-    <div class="pre-headline">⚡ AI SUPPLEMENT RECOVERY FOR ROOFERS</div>
-    <h1>Analyze Claims in <span class="highlight">Minutes.</span><br/>Supplements in <span class="highlight">90 Seconds.</span></h1>
-    <p class="sub">ClaimLogic reads your carrier scope, finds every missed line item, generates the supplement letter, and emails the adjuster — in the time it used to take you to open the PDF. <strong style="color:var(--cyan);letter-spacing:1px;">RECOVER</strong> thousands per claim. <strong style="color:var(--cyan);letter-spacing:1px;">SAVE</strong> hours every week.</p>
+    <div class="pre-headline">⚡ THE CRM BUILT FOR INSURANCE ROOFING COMPANIES</div>
+    <h1>Run Your Entire Company<br/>From <span class="highlight">One Platform.</span></h1>
+    <p class="sub">ClaimLogic gives your team the tools to manage every job, keep homeowners informed, track storms, measure roofs, send estimates, and automate adjuster communication — all in one place built specifically for insurance restoration roofers.</p>
     <div class="cta-row">
       <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%207-Day%20Free%20Trial%20Request&body=Hi%20Jason%2C%0A%0AI%27d%20like%20to%20request%20a%207-day%20free%20trial%20of%20ClaimLogic.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0ATeam%20size%3A%20%0A%0AThanks%21" class="btn btn-primary btn-lg">Request 7-Day Free Trial →</a>
       <a href="tel:6365417005" class="btn btn-ghost btn-lg">📞 (636) 541-7005</a>
     </div>
-    <div class="guarantee">🎁 7-day free trial • No credit card • Approval required (we onboard you personally)</div>
+    <div class="guarantee">🎁 7-day free trial • No credit card • Approval required • Personal onboarding included</div>
 
     <div class="stats" style="margin-top: 60px;">
       <div class="stat">
-        <div class="stat-num">90s</div>
-        <div class="stat-label">Scope → Adjuster Email</div>
+        <div class="stat-num">Live</div>
+        <div class="stat-label">Customer Job Portal</div>
       </div>
       <div class="stat">
-        <div class="stat-num">$10K+</div>
-        <div class="stat-label">Average Savings Per Month</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">87%</div>
-        <div class="stat-label">Supplement Win Rate</div>
+        <div class="stat-num">&lt;1hr</div>
+        <div class="stat-label">Roof Measurement Delivery</div>
       </div>
       <div class="stat">
         <div class="stat-num">5 min</div>
-        <div class="stat-label">Setup Time</div>
+        <div class="stat-label">Estimate Created</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15</div>
+        <div class="stat-label">Users Included</div>
       </div>
     </div>
   </div>
@@ -266,109 +208,105 @@
 
 <section class="problem">
   <div class="container">
-    <h2>The Truth About Insurance Claims</h2>
-    <p class="section-sub">Every claim that crosses your desk is leaking money. You know it. The adjusters know it. Here's exactly how:</p>
+    <h2>What Other CRMs Are Missing</h2>
+    <p class="section-sub">Generic CRMs weren't built for insurance restoration. You end up patching together 4-5 tools and still falling through the cracks.</p>
     <div class="problem-grid">
       <div class="problem-card">
-        <div class="icon">🚫</div>
-        <h3>Omitted Line Items</h3>
-        <p>Drip edge missing 73% of the time. Starter strip 64%. Ice & water 41%. Adjusters bank on you not catching it.</p>
+        <div class="icon">📞</div>
+        <h3>Homeowners Keep Calling</h3>
+        <p>They want job updates. Without a customer portal, every status check is a phone call that pulls your team off the field.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">💸</div>
-        <h3>Short-Pay Tactics</h3>
-        <p>Steep charges undercounted. Detach/reset capped. O&P "doesn't apply." Each one quietly costs you $200–$1,500.</p>
+        <div class="icon">📐</div>
+        <h3>Measuring Takes Too Long</h3>
+        <p>Manual measuring is slow and error-prone. Professional roof measurements should come fast so you can move on to closing.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">📋</div>
-        <h3>Partial Replacements</h3>
-        <p>"Just patch the damaged slope" — even when shingles are discontinued. Killing your warranty and your margin.</p>
+        <div class="icon">🌪️</div>
+        <h3>Missing Storm Opportunities</h3>
+        <p>Storm chasers move fast. Without a built-in tracker showing impacted areas in your market, you're always a step behind.</p>
       </div>
       <div class="problem-card">
-        <div class="icon">⏰</div>
-        <h3>No Time to Fight</h3>
-        <p>Writing supplements takes 2 hours. You're closing deals, running crews, and chasing balances. Adjusters know that.</p>
+        <div class="icon">📧</div>
+        <h3>Supplement Emails Written Manually</h3>
+        <p>Every adjuster email takes time you don't have. Automated generation means nothing slips through the cracks.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="how" class="scan-divider">
+<section id="features" class="scan-divider">
   <div class="container">
-    <div class="section-tag">THE 4 PILLARS</div>
-    <h2>Built to Win Every Claim</h2>
-    <p class="section-sub">Four AI-powered systems working together. From scope to settlement.</p>
+    <div class="section-tag">WHAT'S INCLUDED</div>
+    <h2>Everything Your Team Needs.<br/>Nothing You Don't.</h2>
+    <p class="section-sub">Six powerful systems working together inside one clean platform — built from the ground up for insurance restoration roofing companies.</p>
     <div class="pillars-grid">
       <div class="pillar">
-        <div class="icon">🎯</div>
-        <h3>AI Claim Scoring</h3>
-        <p>Every job graded 0-100 the moment it's added. Tells you exactly what's missing.</p>
+        <div class="icon">🏠</div>
+        <h3>Live Customer Portal</h3>
+        <p>Your homeowners log in and see their job in real time. No more "where are we at?" calls eating up your day.</p>
         <ul class="pillar-features">
-          <li>Approval likelihood score</li>
-          <li>Risk level (low/med/high/critical)</li>
-          <li>Data gap detection</li>
-          <li>Photo coverage analysis</li>
+          <li>Live job status & milestone updates</li>
+          <li>Document sharing & contract signing</li>
+          <li>Photo uploads visible to homeowner</li>
+          <li>Branded with your company</li>
         </ul>
       </div>
       <div class="pillar">
-        <div class="icon">💰</div>
-        <h3>Missed Revenue Engine</h3>
-        <p>Scans carrier scopes, finds omitted items, calculates exact supplement amount.</p>
+        <div class="icon">📐</div>
+        <h3>Roof Measure Included</h3>
+        <p>Order professional roof measurements directly inside ClaimLogic. Delivered in under an hour for single-family homes.</p>
         <ul class="pillar-features">
-          <li>50+ scored line items</li>
-          <li>Roof + siding coverage</li>
-          <li>Code, manufacturer, photo support</li>
-          <li>Priority-ranked opportunities</li>
+          <li>Aerial measurement reports</li>
+          <li>Slopes, eaves, ridges, squares & BOM</li>
+          <li>3D render + XML data file</li>
+          <li>Auto-populates your estimate</li>
         </ul>
       </div>
       <div class="pillar">
-        <div class="icon">🧠</div>
-        <h3>Carrier Pattern Learning</h3>
-        <p>Learns YOUR win rates with each carrier. Knows what State Farm denies, what Allstate omits.</p>
+        <div class="icon">🌪️</div>
+        <h3>Storm Tracker & Swath</h3>
+        <p>See exactly where hail and wind events hit in your market. ClaimLogic overlays storm swaths on a live map so your team knows where to knock.</p>
         <ul class="pillar-features">
-          <li>Win-rate tracking per carrier</li>
-          <li>ZIP-level pricing data</li>
-          <li>Omission pattern detection</li>
-          <li>Gets smarter every claim</li>
+          <li>Real-time hail & wind tracking</li>
+          <li>Storm swath map overlay</li>
+          <li>ZIP-level impact data</li>
+          <li>Exportable lead areas</li>
         </ul>
       </div>
       <div class="pillar">
-        <div class="icon">⚡</div>
-        <h3>One-Click Supplements</h3>
-        <p>Branded PDFs, LKQ letters, emailed direct to adjusters. Done in 90 seconds.</p>
+        <div class="icon">📋</div>
+        <h3>Estimates in Minutes</h3>
+        <p>Build professional, itemized estimates fast. Measurement data flows straight from your roof report — no double entry.</p>
         <ul class="pillar-features">
-          <li>LKQ full replacement letters</li>
-          <li>Missing-items supplements</li>
-          <li>Branded PDF generation</li>
-          <li>Direct email to adjuster</li>
+          <li>Line-item estimate builder</li>
+          <li>Pre-built roofing templates</li>
+          <li>Branded PDF output</li>
+          <li>Send directly to homeowner</li>
         </ul>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="demo" class="scan-divider">
-  <div class="container">
-    <div class="demo-callout">
-      <div class="label">REAL CASE STUDY</div>
-      <h3>Kyle Smith Job — St. Louis, MO</h3>
-      <p style="color: var(--silver); margin-bottom: 12px;">Storm-damaged roof + siding. Carrier approved partial repair only.</p>
-      <div class="case-study">
-        <div class="case-stat red">
-          <div class="num">$18,400</div>
-          <div class="lbl">Carrier Approved</div>
-        </div>
-        <div class="case-stat cyan">
-          <div class="num">$16,850</div>
-          <div class="lbl">ClaimLogic Found Missing</div>
-        </div>
-        <div class="case-stat green">
-          <div class="num">$35,250</div>
-          <div class="lbl">Final Recovery (LKQ — Like Kind &amp; Quality)</div>
-        </div>
+      <div class="pillar">
+        <div class="icon">📧</div>
+        <h3>Automated Adjuster Emails</h3>
+        <p>Generate professional supplement and communication emails to adjusters automatically — no writing from scratch every time.</p>
+        <ul class="pillar-features">
+          <li>Auto-generated adjuster emails</li>
+          <li>Supplement argument templates</li>
+          <li>Sent and logged to job timeline</li>
+          <li>Full AI supplement tools <span class="coming-soon-badge">COMING SOON</span></li>
+        </ul>
       </div>
-      <p style="font-size: 14px; color: var(--silver); margin-bottom: 24px;"><strong style="color: var(--green);">+$16,850 recovered.</strong> 90 seconds of work. One supplement letter. One email to the adjuster.</p>
-      <a href="#pricing" class="btn btn-primary btn-lg">Get This For Your Company →</a>
+      <div class="pillar">
+        <div class="icon">📊</div>
+        <h3>Full Job & Claim Management</h3>
+        <p>Every job, contact, task, invoice, and document — in one dashboard your whole team can work from.</p>
+        <ul class="pillar-features">
+          <li>Pipeline & milestone tracking</li>
+          <li>Team tasks & calendar</li>
+          <li>Invoicing & payment tracking</li>
+          <li>Photo & document storage</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -376,23 +314,31 @@
 <section style="background: linear-gradient(180deg, transparent, rgba(0,212,255,0.03));">
   <div class="container">
     <h2>How It Works</h2>
-    <p class="section-sub">From upload to adjuster's inbox in under two minutes.</p>
+    <p class="section-sub">From new lead to collected payment — one smooth workflow your whole team follows.</p>
     <div class="steps">
       <div class="step">
-        <h4>Upload Scope</h4>
-        <p>Drop the carrier's PDF. ClaimLogic extracts every line item automatically.</p>
+        <h4>Add the Lead</h4>
+        <p>Create a job, assign it to a rep, and attach the homeowner contact. Everything starts here.</p>
       </div>
       <div class="step">
-        <h4>AI Analysis</h4>
-        <p>System scores the claim, flags missing items, references your prior win rates with this carrier.</p>
+        <h4>Order Roof Measure</h4>
+        <p>Request a professional aerial measurement from inside the job. Back in under an hour.</p>
       </div>
       <div class="step">
-        <h4>One-Click Supplement</h4>
-        <p>Pick: missing items, LKQ full replacement, or carrier-specific demand letter. AI writes it.</p>
+        <h4>Build & Send Estimate</h4>
+        <p>Measurement data auto-fills your estimate. Send the branded PDF to the homeowner in minutes.</p>
       </div>
       <div class="step">
-        <h4>Send to Adjuster</h4>
-        <p>Branded PDF + email goes straight to the adjuster. Logged to job timeline. Done.</p>
+        <h4>Keep Homeowner Updated</h4>
+        <p>Customer portal updates in real time as your team moves through milestones. No calls needed.</p>
+      </div>
+      <div class="step">
+        <h4>Email the Adjuster</h4>
+        <p>Auto-generate supplement and follow-up emails. Send with one click, logged to the job.</p>
+      </div>
+      <div class="step">
+        <h4>Close & Collect</h4>
+        <p>Invoice the job, track the balance, and mark it complete. Full job history stays forever.</p>
       </div>
     </div>
   </div>
@@ -407,17 +353,17 @@
       <div class="pillar">
         <div class="icon">⚡</div>
         <h3>5-Minute Setup</h3>
-        <p>Sign up, add your company info, upload your first scope. That's it. You're running supplements before lunch.</p>
+        <p>Sign up, add your company info, and you're running. We personally walk you through onboarding.</p>
       </div>
       <div class="pillar">
         <div class="icon">📥</div>
         <h3>Bring Your Data</h3>
-        <p>Import jobs, contacts, claims, and documents from a spreadsheet or CSV in minutes. We'll help you map the fields.</p>
+        <p>Import jobs, contacts, and documents from a spreadsheet or CSV. We'll help you map the fields.</p>
       </div>
       <div class="pillar">
         <div class="icon">🔓</div>
         <h3>No Lock-In</h3>
-        <p>Export your data anytime. Cancel anytime. Your data is yours — always.</p>
+        <p>Export your data anytime. Cancel anytime. Your data is always yours.</p>
       </div>
     </div>
   </div>
@@ -426,28 +372,50 @@
 <section id="pricing" class="scan-divider">
   <div class="container">
     <div class="section-tag">SIMPLE PRICING</div>
-    <h2>Everything Other CRMs Charge Thousands For.<br/>$249 Flat.</h2>
-    <p class="section-sub">One flat rate. No tiers. No per-user fees. Everything you need to run your insurance restoration company — built for the 2–10 man crew.</p>
+    <h2>Everything You Need.<br/>One Flat Rate.</h2>
+    <p class="section-sub">No per-user fees. No tiers. No surprises. And if you want the platform fully tailored to your company's exact workflow — add it for $99/mo more.</p>
 
-    <div style="max-width: 520px; margin: 0 auto;">
+    <div class="pricing-grid">
+      <!-- Base Plan -->
       <div class="price-card featured">
         <h3>ClaimLogic CRM</h3>
         <div class="tagline">Up to 15 employees — everything included</div>
-        <div class="price"><span class="price-num">$249</span><span class="price-per">/mo</span></div>
+        <div class="price"><span class="price-num">$279</span><span style="font-size:22px;font-weight:900;">.99</span><span class="price-per">&nbsp;/mo</span></div>
         <ul class="price-features">
           <li>Full job & claim management dashboard</li>
+          <li>Live customer portal — homeowners track their job</li>
+          <li>Roof measure included (ordered in-app)</li>
+          <li>Storm tracker & hail swath map</li>
+          <li>Estimates in minutes — branded PDF output</li>
+          <li>Automated adjuster email generation</li>
           <li>Contacts, tasks & calendar</li>
-          <li>Estimates & invoices</li>
+          <li>Invoicing & payment tracking</li>
           <li>Document & photo storage</li>
-          <li>Milestone & pipeline tracking</li>
           <li>Team management (up to 15 users)</li>
-          <li>Adjuster email templates</li>
           <li>CSV import — bring your data from any CRM</li>
-          <li>AI supplement tools <span style="color:var(--warn); font-size:12px;">(Beta)</span></li>
+          <li>AI supplement tools <span class="coming-soon-badge">COMING SOON</span></li>
           <li>No contracts • Cancel anytime</li>
         </ul>
         <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%207-Day%20Free%20Trial%20Request&body=Hi%20Jason%2C%0A%0AI%27d%20like%20to%20request%20a%207-day%20free%20trial%20of%20ClaimLogic.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0ATeam%20size%3A%20%0A%0AThanks%21" class="btn btn-primary" style="width:100%; justify-content:center;">Request 7-Day Free Trial</a>
         <p style="text-align:center; margin-top:10px; font-size:13px; color:var(--silver);">or call <a href="tel:6365417005" style="color:var(--primary);">(636) 541-7005</a></p>
+      </div>
+
+      <!-- Customization Add-On -->
+      <div class="price-card addon">
+        <h3>Custom Workflow Add-On</h3>
+        <div class="tagline">Tailored specifically to your company's process</div>
+        <div class="price"><span style="font-size:22px;font-weight:700;color:var(--warn);">+ </span><span class="price-num" style="background: linear-gradient(135deg, var(--warn), #ff9500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">$99</span><span class="price-per">&nbsp;/mo</span></div>
+        <ul class="price-features">
+          <li>Toggle modules on/off — hide what you don't use</li>
+          <li>Custom pipeline stages for your exact workflow</li>
+          <li>Add your own fields to every job</li>
+          <li>Custom task checklists per pipeline stage</li>
+          <li>Rename any section to match your terminology</li>
+          <li>Your team only sees what's relevant to them</li>
+          <li>Built around how <em>you</em> run jobs — not a generic template</li>
+        </ul>
+        <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%20Custom%20Workflow%20Add-On&body=Hi%20Jason%2C%0A%0AI%27m%20interested%20in%20the%20Custom%20Workflow%20Add-On.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0A%0AThanks%21" class="btn btn-lg" style="width:100%; justify-content:center; background: linear-gradient(135deg, var(--warn), #ff9500); color: #001020; font-weight: 800; box-shadow: 0 0 24px rgba(255,184,0,0.25);">Add Custom Workflow →</a>
+        <p style="text-align:center; margin-top:10px; font-size:13px; color:var(--silver);">Requires base ClaimLogic plan</p>
       </div>
     </div>
 
@@ -455,16 +423,16 @@
 
     <div class="guarantee-box">
       <div class="badge">💰</div>
-      <h3>Other CRMs Charge Per User. We Don't.</h3>
-      <p>ClaimLogic gives you <strong style="color:var(--text);">the same core features</strong> — job management, claims, documents, estimates, invoices, team, calendar — plus AI supplement tools built for insurance restoration. <strong style="color: var(--green);">One flat rate. Up to 15 users. No surprises.</strong></p>
+      <h3>Built for Roofers. Priced for Roofers.</h3>
+      <p>AccuLynx charges per user and locks core features behind higher tiers. ClaimLogic gives your entire team — up to 15 users — the full platform at one flat rate. <strong style="color: var(--green);">No per-user fees. No tiers. No surprises.</strong></p>
     </div>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="container">
-    <h2>Every Claim You Submit Without ClaimLogic<br/><span style="color: var(--red);">Costs You Money</span></h2>
-    <p class="section-sub" style="margin: 16px auto 32px;">Stop letting adjusters write your paycheck. Get a personal walkthrough and see ClaimLogic in action.</p>
+    <h2>Your Competitors Are Already<br/><span style="color: var(--primary);">Automating Their Workflow</span></h2>
+    <p class="section-sub" style="margin: 16px auto 32px;">Stop juggling spreadsheets and callbacks. Get ClaimLogic running for your company today.</p>
     <div class="cta-row">
       <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%207-Day%20Free%20Trial%20Request&body=Hi%20Jason%2C%0A%0AI%27d%20like%20to%20request%20a%207-day%20free%20trial%20of%20ClaimLogic.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0ATeam%20size%3A%20%0A%0AThanks%21" class="btn btn-primary btn-lg">Request 7-Day Free Trial →</a>
       <a href="tel:6365417005" class="btn btn-ghost btn-lg">📞 (636) 541-7005</a>
@@ -473,12 +441,11 @@
   </div>
 </section>
 
-<!-- Contact / Sign Up Section -->
 <section id="contact" class="scan-divider">
   <div class="container" style="max-width:680px; text-align:center;">
     <div class="section-tag">GET STARTED</div>
     <h2>Request Your 7-Day Free Trial</h2>
-    <p class="section-sub">Fill out the form below and Jason will personally reach out to get you set up — usually within 24 hours.</p>
+    <p class="section-sub">Fill out the form and Jason will personally reach out to get you set up — usually within 24 hours.</p>
 
     <form action="https://formsubmit.co/info@getclaimlogic.com" method="POST" style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;text-align:left;">
       <input type="hidden" name="_subject" value="ClaimLogic Trial Request">
@@ -505,7 +472,7 @@
           <input type="email" name="email" required placeholder="you@yourcompany.com" style="width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.05);color:var(--text);font-size:14px;outline:none;">
         </div>
       </div>
-      <div style="margin-bottom:24px;">
+      <div style="margin-bottom:16px;">
         <label style="font-size:12px;font-weight:600;color:var(--silver);letter-spacing:1px;display:block;margin-bottom:6px;">TEAM SIZE</label>
         <select name="team_size" style="width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:14px;outline:none;">
           <option>1-3 people</option>
@@ -513,6 +480,17 @@
           <option>8-15 people</option>
           <option>15+ people</option>
         </select>
+      </div>
+      <div style="margin-bottom:24px;">
+        <label style="font-size:12px;font-weight:600;color:var(--warn);letter-spacing:1px;display:block;margin-bottom:8px;">⭐ ADD CUSTOM WORKFLOW? (+$99/mo)</label>
+        <div style="display:flex;gap:12px;">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--silver);">
+            <input type="radio" name="custom_workflow" value="Yes — I want the Custom Workflow Add-On" style="accent-color:var(--warn);"> Yes, I want full customization
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--silver);">
+            <input type="radio" name="custom_workflow" value="No — base plan only" checked> Base plan only
+          </label>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Request My Free Trial →</button>
       <p style="text-align:center;margin-top:14px;font-size:12px;color:var(--dim);">Or call us directly: <a href="tel:6365417005" style="color:var(--primary);">(636) 541-7005</a></p>
