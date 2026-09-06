@@ -27,6 +27,7 @@
   <meta property="og:image" content="https://getclaimlogic.com/claimlogic-logo.jpg">
   <link rel="icon" type="image/jpeg" href="claimlogic-logo.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -76,18 +77,25 @@
     @keyframes pulseGlow { 0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
     @keyframes heroSweep { 0% { left: -60%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: 120%; opacity: 0; } }
 
-    .pre-headline { display: inline-block; padding: 6px 14px; border-radius: 100px; background: rgba(0,212,255,0.1); border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--primary); letter-spacing: 1px; margin-bottom: 24px; }
+    .pre-headline { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 100px; background: rgba(0,212,255,0.1); border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--primary); letter-spacing: 1px; margin-bottom: 24px; }
+    .pre-headline i { width: 14px; height: 14px; }
     h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; background: linear-gradient(135deg, #fff, var(--primary) 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     h1 .highlight { background: linear-gradient(135deg, var(--green), var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     .sub { font-size: 18px; color: var(--silver); max-width: 700px; margin: 0 auto 32px; }
     .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
-    .guarantee { font-size: 13px; color: var(--green); margin-top: 16px; font-weight: 600; }
+    .guarantee { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; color: var(--green); margin-top: 16px; font-weight: 600; }
+    .guarantee i { width: 16px; height: 16px; }
+
+    /* Icon wrapper for key points & pillars */
+    .icon-wrap { flex-shrink: 0; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(0,212,255,0.08); border-radius: 12px; }
+    .icon-wrap i { color: var(--primary); width: 24px; height: 24px; }
+    .icon-wrap-lg { width: 52px; height: 52px; border-radius: 14px; }
+    .icon-wrap-lg i { width: 28px; height: 28px; }
 
     /* Key Points Grid */
     .key-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
     .key-point { display: flex; align-items: flex-start; gap: 14px; padding: 20px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 16px; transition: border-color 0.3s; }
     .key-point:hover { border-color: var(--primary); }
-    .key-point .kp-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
     .key-point .kp-title { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
     .key-point .kp-desc { font-size: 13px; color: var(--silver); line-height: 1.5; }
 
@@ -99,7 +107,7 @@
     .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .pillar { padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); transition: all 0.3s; }
     .pillar:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: var(--glow); }
-    .pillar .icon { font-size: 40px; margin-bottom: 16px; }
+    .pillar .pillar-icon { margin-bottom: 16px; }
     .pillar h3 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
     .pillar p { font-size: 15px; color: var(--silver); margin-bottom: 16px; }
     .pillar-features { list-style: none; }
@@ -133,7 +141,8 @@
     .price-features li::before { content: "✓"; color: var(--green); position: absolute; left: 0; font-weight: 700; }
 
     .guarantee-box { margin-top: 48px; padding: 32px; background: linear-gradient(135deg, rgba(0,255,156,0.08), rgba(0,212,255,0.04)); border: 1px solid rgba(0,255,156,0.3); border-radius: 20px; text-align: center; }
-    .guarantee-box .badge { font-size: 36px; margin-bottom: 12px; }
+    .guarantee-box .badge-icon { display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; width: 56px; height: 56px; background: rgba(0,255,156,0.1); border-radius: 16px; }
+    .guarantee-box .badge-icon i { color: var(--green); width: 32px; height: 32px; }
     .guarantee-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: var(--green); }
     .guarantee-box p { color: var(--silver); max-width: 560px; margin: 0 auto; }
 
@@ -144,6 +153,9 @@
 
     section.scan-divider::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.6), rgba(255,255,255,0.4), rgba(0,212,255,0.6), transparent); animation: scanLine 8s linear infinite; pointer-events: none; }
     @keyframes scanLine { 0% { left: -100%; } 100% { left: 100%; } }
+
+    /* Inline icon in buttons/text */
+    .btn i, .inline-icon { width: 18px; height: 18px; vertical-align: middle; }
 
     @media (max-width: 768px) {
       .nav-links a:not(.btn) { display: none; }
@@ -169,7 +181,7 @@
       <a href="#pricing">Pricing</a>
       <a href="#contact" class="btn btn-ghost">Sign Up</a>
       <a href="https://trustman-crm-production.up.railway.app" target="_blank" class="btn btn-primary">Sign In</a>
-      <span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:100px;background:rgba(170,180,194,0.08);border:1px solid rgba(170,180,194,0.2);font-size:10px;font-weight:600;color:var(--dim);letter-spacing:0.5px;">🛡️ Patent Pending</span>
+      <span style="display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:100px;background:rgba(170,180,194,0.08);border:1px solid rgba(170,180,194,0.2);font-size:10px;font-weight:600;color:var(--dim);letter-spacing:0.5px;"><i data-lucide="shield" style="width:12px;height:12px;"></i> Patent Pending</span>
     </div>
   </div>
 </nav>
@@ -179,68 +191,68 @@
   <div class="hero-glow"></div>
   <div class="hero-sweep"></div>
   <div class="container">
-    <div class="pre-headline">⚡ FULLY AUTOMATED CRM — BUILT FOR INSURANCE ROOFING</div>
+    <div class="pre-headline"><i data-lucide="zap"></i> FULLY AUTOMATED CRM — BUILT FOR INSURANCE ROOFING</div>
     <h1>Stop Doing The Work<br/>Your CRM <span class="highlight">Should Be Doing.</span></h1>
     <p class="sub">ClaimLogic automates 90% of your daily CRM work. No more manual data entry. No more wasted hours. Just run jobs, close deals, and collect checks.</p>
     <div class="cta-row">
       <a href="#contact" class="btn btn-primary btn-lg">Start Your 60-Day Free Trial →</a>
-      <a href="tel:6365417005" class="btn btn-ghost btn-lg">📞 (636) 541-7005</a>
+      <a href="tel:6365417005" class="btn btn-ghost btn-lg"><i data-lucide="phone" style="width:16px;height:16px;"></i> (636) 541-7005</a>
     </div>
-    <div class="guarantee">🎁 60-day free trial • No credit card • No contracts • Personal onboarding included</div>
+    <div class="guarantee"><i data-lucide="gift"></i> 60-day free trial · No credit card · No contracts · Personal onboarding included</div>
 
     <!-- KEY POINTS — visible immediately -->
     <div class="key-points" style="margin-top: 48px;">
       <div class="key-point">
-        <div class="kp-icon">🤖</div>
+        <div class="icon-wrap"><i data-lucide="cpu"></i></div>
         <div>
           <div class="kp-title">90% of the Work — Done For You</div>
           <div class="kp-desc">Fully automated SaaS. Leads, contracts, emails, estimates — the system handles it so you don't have to.</div>
         </div>
       </div>
       <div class="key-point">
-        <div class="kp-icon">👥</div>
+        <div class="icon-wrap"><i data-lucide="users"></i></div>
         <div>
           <div class="kp-title">Up to 10 Users & Emails — No Extra Charge</div>
           <div class="kp-desc">Add your whole team. No per-user fees. No per-email fees. One flat price covers everyone.</div>
         </div>
       </div>
       <div class="key-point">
-        <div class="kp-icon">💰</div>
+        <div class="icon-wrap"><i data-lucide="dollar-sign"></i></div>
         <div>
           <div class="kp-title">A Fraction of the Cost</div>
           <div class="kp-desc">Other CRMs charge per user, per feature, per email. ClaimLogic is one flat rate with everything included.</div>
         </div>
       </div>
       <div class="key-point">
-        <div class="kp-icon">⏱️</div>
+        <div class="icon-wrap"><i data-lucide="clock"></i></div>
         <div>
           <div class="kp-title">Save Hours Every Day</div>
           <div class="kp-desc">Stop manually inputting data. Use that time to close more deals and produce more revenue.</div>
         </div>
       </div>
       <div class="key-point">
-        <div class="kp-icon">🔗</div>
+        <div class="icon-wrap"><i data-lucide="share-2"></i></div>
         <div>
           <div class="kp-title">Built-In Referral Program</div>
           <div class="kp-desc">Turn happy customers into lead sources. Your own referral portal generates new business automatically.</div>
         </div>
       </div>
       <div class="key-point">
-        <div class="kp-icon">🌪️</div>
+        <div class="icon-wrap"><i data-lucide="cloud-lightning"></i></div>
         <div>
           <div class="kp-title">Storm Tracker — Hail & Tornado Reports</div>
           <div class="kp-desc">See exactly where storms hit your market. Hail swaths, wind data, and ZIP-level impact — built right in.</div>
         </div>
       </div>
       <div class="key-point">
-        <div class="kp-icon">📐</div>
+        <div class="icon-wrap"><i data-lucide="ruler"></i></div>
         <div>
           <div class="kp-title">Integrated Roof Measuring</div>
           <div class="kp-desc">Order professional aerial measurements inside the app. Report delivered in under an hour.</div>
         </div>
       </div>
       <div class="key-point">
-        <div class="kp-icon">🏠</div>
+        <div class="icon-wrap"><i data-lucide="home"></i></div>
         <div>
           <div class="kp-title">Customer Portal — No More Status Calls</div>
           <div class="kp-desc">Each client gets their own portal link to track progress. Toggle what they see. Turn it on or off per job. They stop calling — you stop explaining.</div>
@@ -258,7 +270,7 @@
     <p class="section-sub">Built from the ground up for insurance restoration roofing companies.</p>
     <div class="pillars-grid">
       <div class="pillar">
-        <div class="icon">🏠</div>
+        <div class="pillar-icon"><div class="icon-wrap icon-wrap-lg"><i data-lucide="home"></i></div></div>
         <h3>Customer Portal</h3>
         <p>Each homeowner gets a unique link to see their job progress. No more phone calls asking "where are we at?"</p>
         <ul class="pillar-features">
@@ -269,7 +281,7 @@
         </ul>
       </div>
       <div class="pillar">
-        <div class="icon">📐</div>
+        <div class="pillar-icon"><div class="icon-wrap icon-wrap-lg"><i data-lucide="ruler"></i></div></div>
         <h3>Roof Measure</h3>
         <p>Order professional aerial measurements directly inside ClaimLogic. Delivered in under an hour.</p>
         <ul class="pillar-features">
@@ -279,7 +291,7 @@
         </ul>
       </div>
       <div class="pillar">
-        <div class="icon">🌪️</div>
+        <div class="pillar-icon"><div class="icon-wrap icon-wrap-lg"><i data-lucide="cloud-lightning"></i></div></div>
         <h3>Storm Tracker</h3>
         <p>Live hail and tornado reports overlaid on your market map. Know where to knock before anyone else.</p>
         <ul class="pillar-features">
@@ -289,7 +301,7 @@
         </ul>
       </div>
       <div class="pillar">
-        <div class="icon">🔗</div>
+        <div class="pillar-icon"><div class="icon-wrap icon-wrap-lg"><i data-lucide="share-2"></i></div></div>
         <h3>Referral Program</h3>
         <p>Built-in referral portal. Partners register, submit leads, and earn commission — automatically tracked.</p>
         <ul class="pillar-features">
@@ -299,7 +311,7 @@
         </ul>
       </div>
       <div class="pillar" style="border-color: rgba(0,255,156,0.4); box-shadow: 0 0 28px rgba(0,255,156,0.08);">
-        <div class="icon">⚡</div>
+        <div class="pillar-icon"><div class="icon-wrap icon-wrap-lg" style="background:rgba(0,255,156,0.1);"><i data-lucide="zap" style="color:#00FF9C;"></i></div></div>
         <div style="display:inline-block; padding: 3px 10px; border-radius: 100px; background: rgba(0,255,156,0.12); border: 1px solid rgba(0,255,156,0.35); font-size: 10px; font-weight: 800; color: #00FF9C; letter-spacing: 1.2px; margin-bottom: 12px;">NEW FEATURE</div>
         <h3>Estimate Builder</h3>
         <p>Roof measure comes in — estimate goes out. Set your labor rates and margins once. ClaimLogic builds the rest automatically.</p>
@@ -310,7 +322,7 @@
         </ul>
       </div>
       <div class="pillar">
-        <div class="icon">📊</div>
+        <div class="pillar-icon"><div class="icon-wrap icon-wrap-lg"><i data-lucide="bar-chart-3"></i></div></div>
         <h3>Job & Claim Management</h3>
         <p>Pipeline, tasks, invoicing, documents, calendar — your whole operation in one dashboard.</p>
         <ul class="pillar-features">
@@ -373,7 +385,7 @@
           <li>Automated adjuster emails</li>
           <li>Invoicing & payment tracking</li>
           <li>CSV import — bring your data</li>
-          <li>No contracts • Cancel anytime</li>
+          <li>No contracts · Cancel anytime</li>
         </ul>
         <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center;">Start 60-Day Free Trial</a>
         <p style="text-align:center; margin-top:10px; font-size:13px; color:var(--silver);">or call <a href="tel:6365417005" style="color:var(--primary);">(636) 541-7005</a></p>
@@ -399,7 +411,7 @@
     <p style="text-align:center; margin-top:24px; font-size:14px; color:var(--silver);">10+ users or multiple locations? <a href="mailto:info@getclaimlogic.com?subject=Enterprise%20Plan%20Inquiry" style="color:var(--primary);">Contact us for Enterprise pricing →</a></p>
 
     <div class="guarantee-box">
-      <div class="badge">💰</div>
+      <div class="badge-icon"><i data-lucide="badge-dollar-sign"></i></div>
       <h3>Built for Roofers. Priced for Roofers.</h3>
       <p>One flat rate. Up to 10 users included. No per-user fees. No tiers. No surprises. <strong style="color: var(--green);">60-day free trial — no credit card required.</strong></p>
     </div>
@@ -413,9 +425,9 @@
     <p class="section-sub" style="margin: 16px auto 32px;">Stop wasting hours on manual data entry. Get ClaimLogic running today.</p>
     <div class="cta-row">
       <a href="#contact" class="btn btn-primary btn-lg">Start Your 60-Day Free Trial →</a>
-      <a href="tel:6365417005" class="btn btn-ghost btn-lg">📞 (636) 541-7005</a>
+      <a href="tel:6365417005" class="btn btn-ghost btn-lg"><i data-lucide="phone" style="width:16px;height:16px;"></i> (636) 541-7005</a>
     </div>
-    <p style="margin-top: 20px; font-size: 13px; color: var(--dim);">60-day free trial • No credit card • No contracts • Personal onboarding</p>
+    <p style="margin-top: 20px; font-size: 13px; color: var(--dim);">60-day free trial · No credit card · No contracts · Personal onboarding</p>
   </div>
 </section>
 
@@ -461,7 +473,7 @@
         </select>
       </div>
       <div style="margin-bottom:24px;">
-        <label style="font-size:12px;font-weight:600;color:var(--warn);letter-spacing:1px;display:block;margin-bottom:8px;">⭐ ADD CUSTOM WORKFLOW? (+$99/mo)</label>
+        <label style="font-size:12px;font-weight:600;color:var(--warn);letter-spacing:1px;display:block;margin-bottom:8px;display:flex;align-items:center;gap:6px;"><i data-lucide="star" style="width:14px;height:14px;color:var(--warn);"></i> ADD CUSTOM WORKFLOW? (+$99/mo)</label>
         <div style="display:flex;gap:12px;">
           <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--silver);">
             <input type="radio" name="custom_workflow" value="Yes — I want the Custom Workflow Add-On" style="accent-color:var(--warn);"> Yes, full customization
@@ -502,5 +514,6 @@
   </div>
 </footer>
 
+<script>lucide.createIcons();</script>
 </body>
 </html>
