@@ -21,9 +21,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ClaimLogic — The CRM Built for Insurance Roofing Companies</title>
-  <meta name="description" content="ClaimLogic is the all-in-one CRM built specifically for insurance roofing companies. Customer portal, roof measure, storm tracker, estimate builder, and automated adjuster emails — all in one platform.">
+  <meta name="description" content="ClaimLogic is the all-in-one automated CRM built specifically for insurance roofing companies. 90% of the work done for you. Customer portal, roof measure, storm tracker, referral program — all included.">
   <meta property="og:title" content="ClaimLogic — Run Your Entire Roofing Company From One Platform">
-  <meta property="og:description" content="Customer portals, automated adjuster emails, roof measure, storm tracker, and estimates in minutes. Built for insurance restoration roofers.">
+  <meta property="og:description" content="Fully automated CRM for insurance restoration roofers. Customer portals, roof measure, storm tracker, referral program, and more — at a fraction of the cost.">
   <meta property="og:image" content="https://getclaimlogic.com/claimlogic-logo.jpg">
   <link rel="icon" type="image/jpeg" href="claimlogic-logo.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@
     .btn-ghost:hover { border-color: var(--primary); }
     .btn-lg { padding: 16px 32px; font-size: 16px; }
 
-    .hero { padding: 100px 0 80px; text-align: center; position: relative; overflow: hidden; }
+    .hero { padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
     .hero-glow { position: absolute; top: 50%; left: 50%; width: 800px; height: 800px; transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(0,212,255,0.10) 0%, transparent 60%); pointer-events: none; z-index: 0; animation: pulseGlow 6s ease-in-out infinite; }
     .hero-sweep { position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(105deg, transparent 0%, transparent 30%, rgba(0,212,255,0.04) 45%, rgba(0,212,255,0.18) 50%, rgba(255,255,255,0.08) 52%, rgba(0,212,255,0.18) 54%, rgba(0,212,255,0.04) 60%, transparent 75%, transparent 100%); pointer-events: none; z-index: 1; animation: heroSweep 7s ease-in-out infinite; filter: blur(2px); }
     .hero .container { position: relative; z-index: 2; }
@@ -77,28 +77,24 @@
     @keyframes heroSweep { 0% { left: -60%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: 120%; opacity: 0; } }
 
     .pre-headline { display: inline-block; padding: 6px 14px; border-radius: 100px; background: rgba(0,212,255,0.1); border: 1px solid var(--border); font-size: 12px; font-weight: 600; color: var(--primary); letter-spacing: 1px; margin-bottom: 24px; }
-    h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; background: linear-gradient(135deg, #fff, var(--primary) 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 900; line-height: 1.05; letter-spacing: -2px; margin-bottom: 24px; background: linear-gradient(135deg, #fff, var(--primary) 80%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
     h1 .highlight { background: linear-gradient(135deg, var(--green), var(--primary)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-    .sub { font-size: 19px; color: var(--silver); max-width: 740px; margin: 0 auto 36px; }
-    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px; }
+    .sub { font-size: 18px; color: var(--silver); max-width: 700px; margin: 0 auto 32px; }
+    .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
     .guarantee { font-size: 13px; color: var(--green); margin-top: 16px; font-weight: 600; }
 
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); }
-    .stat { text-align: center; }
-    .stat-num { font-size: 36px; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--green)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
-    .stat-label { font-size: 12px; color: var(--silver); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 8px; }
+    /* Key Points Grid */
+    .key-points { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
+    .key-point { display: flex; align-items: flex-start; gap: 14px; padding: 20px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: 16px; transition: border-color 0.3s; }
+    .key-point:hover { border-color: var(--primary); }
+    .key-point .kp-icon { font-size: 28px; flex-shrink: 0; line-height: 1; }
+    .key-point .kp-title { font-size: 15px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+    .key-point .kp-desc { font-size: 13px; color: var(--silver); line-height: 1.5; }
 
     section { padding: 80px 0; position: relative; }
     .section-tag { display: inline-block; padding: 4px 12px; border-radius: 100px; background: rgba(255,61,154,0.1); border: 1px solid rgba(255,61,154,0.3); font-size: 11px; font-weight: 700; color: var(--pink); letter-spacing: 1.5px; margin-bottom: 16px; }
     h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; letter-spacing: -1px; margin-bottom: 16px; }
     .section-sub { font-size: 17px; color: var(--silver); max-width: 700px; margin-bottom: 48px; }
-
-    .problem { background: linear-gradient(180deg, transparent, rgba(255,77,77,0.05)); border-top: 1px solid rgba(255,77,77,0.15); border-bottom: 1px solid rgba(255,77,77,0.15); }
-    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .problem-card { padding: 24px; background: rgba(255,77,77,0.05); border: 1px solid rgba(255,77,77,0.2); border-radius: 16px; }
-    .problem-card .icon { font-size: 32px; margin-bottom: 12px; }
-    .problem-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-    .problem-card p { font-size: 14px; color: var(--silver); }
 
     .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .pillar { padding: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; backdrop-filter: blur(10px); transition: all 0.3s; }
@@ -116,17 +112,6 @@
     .step::before { content: counter(step); position: absolute; top: -16px; left: 24px; width: 32px; height: 32px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #001020; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px; box-shadow: var(--glow); }
     .step h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; margin-top: 8px; }
     .step p { font-size: 13px; color: var(--silver); }
-
-    .demo-callout { padding: 48px; background: linear-gradient(135deg, rgba(0,212,255,0.08), rgba(255,61,154,0.06)); border: 1px solid var(--border); border-radius: 24px; text-align: center; backdrop-filter: blur(20px); }
-    .demo-callout .label { font-size: 12px; font-weight: 700; color: var(--pink); letter-spacing: 1.5px; margin-bottom: 12px; }
-    .demo-callout h3 { font-size: 28px; font-weight: 800; margin-bottom: 12px; }
-    .demo-callout .case-study { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 28px 0; max-width: 700px; margin-left: auto; margin-right: auto; }
-    .case-stat { padding: 20px; background: rgba(0,0,0,0.3); border-radius: 12px; }
-    .case-stat .num { font-size: 26px; font-weight: 900; line-height: 1; }
-    .case-stat.red .num { color: var(--red); }
-    .case-stat.green .num { color: var(--green); }
-    .case-stat.cyan .num { color: var(--primary); }
-    .case-stat .lbl { font-size: 11px; color: var(--silver); text-transform: uppercase; margin-top: 6px; letter-spacing: 0.5px; }
 
     /* Pricing */
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 860px; margin: 0 auto; }
@@ -161,10 +146,9 @@
     @keyframes scanLine { 0% { left: -100%; } 100% { left: 100%; } }
 
     @media (max-width: 768px) {
-      .stats { grid-template-columns: repeat(2, 1fr); }
       .nav-links a:not(.btn) { display: none; }
-      .demo-callout .case-study { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; }
+      .key-points { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -190,198 +174,105 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-sweep"></div>
   <div class="container">
-    <div class="pre-headline">⚡ FULLY CUSTOMIZABLE CRM — BUILT FOR INSURANCE ROOFING COMPANIES</div>
-    <h1>Built For Your Company.<br/>Runs Like <span class="highlight">You Designed It.</span></h1>
-    <p class="sub">ClaimLogic is fully customizable to match how <em>your</em> company runs — your pipeline stages, your terminology, your workflow. Every job, every homeowner, every adjuster email managed from one platform built specifically for insurance restoration roofers.</p>
+    <div class="pre-headline">⚡ FULLY AUTOMATED CRM — BUILT FOR INSURANCE ROOFING</div>
+    <h1>Stop Doing The Work<br/>Your CRM <span class="highlight">Should Be Doing.</span></h1>
+    <p class="sub">ClaimLogic automates 90% of your daily CRM work. No more manual data entry. No more wasted hours. Just run jobs, close deals, and collect checks.</p>
     <div class="cta-row">
-      <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%207-Day%20Free%20Trial%20Request&body=Hi%20Jason%2C%0A%0AI%27d%20like%20to%20request%20a%207-day%20free%20trial%20of%20ClaimLogic.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0ATeam%20size%3A%20%0A%0AThanks%21" class="btn btn-primary btn-lg">Request 7-Day Free Trial →</a>
+      <a href="#contact" class="btn btn-primary btn-lg">Start Your 60-Day Free Trial →</a>
       <a href="tel:6365417005" class="btn btn-ghost btn-lg">📞 (636) 541-7005</a>
     </div>
-    <div class="guarantee">🎁 7-day free trial • No credit card • Approval required • Personal onboarding included</div>
+    <div class="guarantee">🎁 60-day free trial • No credit card • No contracts • Personal onboarding included</div>
 
-    <div class="stats" style="margin-top: 60px;">
-      <div class="stat">
-        <div class="stat-num">Live</div>
-        <div class="stat-label">Customer Job Portal</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">&lt;1hr</div>
-        <div class="stat-label">Roof Measurement Delivery</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">5 min</div>
-        <div class="stat-label">Estimate Created</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">15</div>
-        <div class="stat-label">Users Included</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Value Banner -->
-<section style="padding: 48px 0; background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,255,156,0.04)); border-top: 1px solid rgba(0,212,255,0.2); border-bottom: 1px solid rgba(0,212,255,0.2);">
-  <div class="container">
-    <div style="text-align:center; margin-bottom: 32px;">
-      <div style="display:inline-block; padding: 6px 16px; border-radius: 100px; background: rgba(0,255,156,0.12); border: 1px solid rgba(0,255,156,0.35); font-size: 12px; font-weight: 700; color: var(--green); letter-spacing: 1.2px; margin-bottom: 14px;">💡 STRAIGHT TALK ON PRICING</div>
-      <h2 style="font-size: clamp(22px, 3.5vw, 36px); font-weight: 900; letter-spacing: -1px; margin-bottom: 10px;">Other CRMs Look Inexpensive.<br/><span style="color: var(--primary);">Until You Read the Fine Print.</span></h2>
-      <p style="color: var(--silver); font-size: 16px; max-width: 620px; margin: 0 auto;">They advertise a low monthly rate — then charge per user, per email, per feature. By the time your team is set up, you're paying double. ClaimLogic is different.</p>
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto;">
-      <div style="padding: 24px 20px; background: rgba(0,0,0,0.3); border-radius: 16px; border: 1px solid rgba(0,255,156,0.25); text-align: center;">
-        <div style="font-size: 28px; margin-bottom: 8px;">👥</div>
-        <div style="font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 6px;">Up to 15 Users</div>
-        <div style="font-size: 13px; color: var(--silver);">One flat rate covers your whole team. No per-user fees — ever.</div>
-      </div>
-      <div style="padding: 24px 20px; background: rgba(0,0,0,0.3); border-radius: 16px; border: 1px solid rgba(0,255,156,0.25); text-align: center;">
-        <div style="font-size: 28px; margin-bottom: 8px;">📧</div>
-        <div style="font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 6px;">Emails Included</div>
-        <div style="font-size: 13px; color: var(--silver);">Adjuster emails, customer notifications, job updates — all included. No email fees.</div>
-      </div>
-      <div style="padding: 24px 20px; background: rgba(0,0,0,0.3); border-radius: 16px; border: 1px solid rgba(0,255,156,0.25); text-align: center;">
-        <div style="font-size: 28px; margin-bottom: 8px;">🏠</div>
-        <div style="font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 6px;">Customer Portal Included</div>
-        <div style="font-size: 13px; color: var(--silver);">Homeowners track their job live. No add-on. No upgrade required.</div>
-      </div>
-      <div style="padding: 24px 20px; background: rgba(0,0,0,0.3); border-radius: 16px; border: 1px solid rgba(0,255,156,0.25); text-align: center;">
-        <div style="font-size: 28px; margin-bottom: 8px;">📐</div>
-        <div style="font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 6px;">Roof Measure Included</div>
-        <div style="font-size: 13px; color: var(--silver);">Order aerial measurements directly in-app. No third-party account needed.</div>
-      </div>
-      <div style="padding: 24px 20px; background: rgba(0,0,0,0.3); border-radius: 16px; border: 1px solid rgba(0,255,156,0.25); text-align: center;">
-        <div style="font-size: 28px; margin-bottom: 8px;">🌪️</div>
-        <div style="font-size: 15px; font-weight: 800; color: var(--green); margin-bottom: 6px;">Storm Tracker Included</div>
-        <div style="font-size: 13px; color: var(--silver);">Hail swath maps and storm data built in. No separate subscription.</div>
-      </div>
-    </div>
-    <div style="text-align: center; margin-top: 32px; padding: 20px; background: rgba(0,212,255,0.05); border-radius: 14px; border: 1px solid rgba(0,212,255,0.2); max-width: 700px; margin-left: auto; margin-right: auto;">
-      <p style="font-size: 15px; color: var(--text);">Everything above is included at <strong style="color: var(--primary);">$279.99/mo flat</strong> — no hidden fees, no per-user charges, no surprises. <span style="color: var(--silver);">Add the Custom Workflow package for $99/mo more.</span></p>
-    </div>
-  </div>
-</section>
-
-<!-- Fully Customizable Callout Strip -->
-<section style="padding: 36px 0; background: linear-gradient(135deg, rgba(255,61,154,0.07), rgba(0,212,255,0.05)); border-top: 1px solid rgba(255,61,154,0.2); border-bottom: 1px solid rgba(0,212,255,0.2);">
-  <div class="container" style="max-width: 1000px;">
-    <div style="display: flex; align-items: center; gap: 32px; flex-wrap: wrap; justify-content: space-between;">
-      <div style="flex: 1; min-width: 280px;">
-        <div style="font-size:11px; font-weight:800; color:var(--pink); letter-spacing:1.5px; margin-bottom:6px;">🎛️ FULLY CUSTOMIZABLE — BUILT FOR YOUR COMPANY</div>
-        <h3 style="font-size: clamp(20px, 3vw, 28px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 8px;">Your Pipeline. Your Stages. <span style="color:var(--primary);">Your Rules.</span></h3>
-        <p style="font-size: 15px; color: var(--silver); max-width: 560px;">No two roofing companies run the same. ClaimLogic molds to <strong style="color:var(--text);">your</strong> exact workflow — custom pipeline stages, your own field labels, task checklists that match how your team actually works. It doesn't look like everyone else's CRM because it <em>isn't</em> everyone else's CRM.</p>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex-shrink: 0;">
-        <div style="padding: 16px 18px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,61,154,0.3); border-radius: 14px; text-align: center;">
-          <div style="font-size: 24px; margin-bottom: 6px;">🔧</div>
-          <div style="font-size: 13px; font-weight: 700; color: var(--pink);">Custom Stages</div>
-          <div style="font-size: 11px; color: var(--silver); margin-top: 3px;">Name each step your way</div>
-        </div>
-        <div style="padding: 16px 18px; background: rgba(0,0,0,0.35); border: 1px solid rgba(0,212,255,0.3); border-radius: 14px; text-align: center;">
-          <div style="font-size: 24px; margin-bottom: 6px;">🏷️</div>
-          <div style="font-size: 13px; font-weight: 700; color: var(--primary);">Your Fields</div>
-          <div style="font-size: 11px; color: var(--silver); margin-top: 3px;">Add any field you need</div>
-        </div>
-        <div style="padding: 16px 18px; background: rgba(0,0,0,0.35); border: 1px solid rgba(0,255,156,0.3); border-radius: 14px; text-align: center;">
-          <div style="font-size: 24px; margin-bottom: 6px;">✅</div>
-          <div style="font-size: 13px; font-weight: 700; color: var(--green);">Custom Checklists</div>
-          <div style="font-size: 11px; color: var(--silver); margin-top: 3px;">Per stage, per team</div>
-        </div>
-        <div style="padding: 16px 18px; background: rgba(0,0,0,0.35); border: 1px solid rgba(255,184,0,0.3); border-radius: 14px; text-align: center;">
-          <div style="font-size: 24px; margin-bottom: 6px;">👁️</div>
-          <div style="font-size: 13px; font-weight: 700; color: var(--warn);">Role-Based Views</div>
-          <div style="font-size: 11px; color: var(--silver); margin-top: 3px;">Team sees only what's relevant</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Estimate Builder Callout Strip -->
-<section style="padding: 36px 0; background: linear-gradient(135deg, rgba(0,255,156,0.05), rgba(0,212,255,0.04)); border-top: 1px solid rgba(0,255,156,0.15); border-bottom: 1px solid rgba(0,212,255,0.15);">
-  <div class="container" style="max-width: 960px;">
-    <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap; justify-content: space-between;">
-      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-        <div style="font-size: 42px;">⚡</div>
+    <!-- KEY POINTS — visible immediately -->
+    <div class="key-points" style="margin-top: 48px;">
+      <div class="key-point">
+        <div class="kp-icon">🤖</div>
         <div>
-          <div style="font-size:11px; font-weight:800; color:#00FF9C; letter-spacing:1.5px; margin-bottom:4px;">NEW — ESTIMATE BUILDER</div>
-          <h3 style="font-size: clamp(17px, 2.5vw, 22px); font-weight: 900; letter-spacing: -0.5px; margin-bottom: 4px;">Roof measure comes in. Estimate goes out. <span style="color:#00D4FF;">Done.</span></h3>
-          <p style="font-size: 14px; color: var(--silver); max-width: 560px;">Set your labor rates, material costs, and profit margin once. Every time a measurement lands, ClaimLogic builds the full estimate automatically — priced for <strong style="color:var(--text);">your market, your margins.</strong></p>
+          <div class="kp-title">90% of the Work — Done For You</div>
+          <div class="kp-desc">Fully automated SaaS. Leads, contracts, emails, estimates — the system handles it so you don't have to.</div>
         </div>
       </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; flex-shrink:0;">
-        <div style="padding:12px 18px; background:rgba(0,0,0,0.3); border:1px solid rgba(0,255,156,0.25); border-radius:14px; text-align:center; min-width:100px;">
-          <div style="font-size:22px; font-weight:900; color:#00FF9C;">Auto</div>
-          <div style="font-size:11px; color:var(--silver); margin-top:2px;">Qty from measure</div>
+      <div class="key-point">
+        <div class="kp-icon">👥</div>
+        <div>
+          <div class="kp-title">Up to 10 Users & Emails — No Extra Charge</div>
+          <div class="kp-desc">Add your whole team. No per-user fees. No per-email fees. One flat price covers everyone.</div>
         </div>
-        <div style="padding:12px 18px; background:rgba(0,0,0,0.3); border:1px solid rgba(0,212,255,0.25); border-radius:14px; text-align:center; min-width:100px;">
-          <div style="font-size:22px; font-weight:900; color:#00D4FF;">Your</div>
-          <div style="font-size:11px; color:var(--silver); margin-top:2px;">Prices &amp; margins</div>
+      </div>
+      <div class="key-point">
+        <div class="kp-icon">💰</div>
+        <div>
+          <div class="kp-title">A Fraction of the Cost</div>
+          <div class="kp-desc">Other CRMs charge per user, per feature, per email. ClaimLogic is one flat rate with everything included.</div>
         </div>
-        <div style="padding:12px 18px; background:rgba(0,0,0,0.3); border:1px solid rgba(255,184,0,0.25); border-radius:14px; text-align:center; min-width:100px;">
-          <div style="font-size:22px; font-weight:900; color:#FFB800;">Fast</div>
-          <div style="font-size:11px; color:var(--silver); margin-top:2px;">Sent automatically</div>
+      </div>
+      <div class="key-point">
+        <div class="kp-icon">⏱️</div>
+        <div>
+          <div class="kp-title">Save Hours Every Day</div>
+          <div class="kp-desc">Stop manually inputting data. Use that time to close more deals and produce more revenue.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="kp-icon">🔗</div>
+        <div>
+          <div class="kp-title">Built-In Referral Program</div>
+          <div class="kp-desc">Turn happy customers into lead sources. Your own referral portal generates new business automatically.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="kp-icon">🌪️</div>
+        <div>
+          <div class="kp-title">Storm Tracker — Hail & Tornado Reports</div>
+          <div class="kp-desc">See exactly where storms hit your market. Hail swaths, wind data, and ZIP-level impact — built right in.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="kp-icon">📐</div>
+        <div>
+          <div class="kp-title">Integrated Roof Measuring</div>
+          <div class="kp-desc">Order professional aerial measurements inside the app. Report delivered in under an hour.</div>
+        </div>
+      </div>
+      <div class="key-point">
+        <div class="kp-icon">🏠</div>
+        <div>
+          <div class="kp-title">Customer Portal — No More Status Calls</div>
+          <div class="kp-desc">Each client gets their own portal link to track progress. Toggle what they see. Turn it on or off per job. They stop calling — you stop explaining.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="problem">
-  <div class="container">
-    <h2>What Other CRMs Are Missing</h2>
-    <p class="section-sub">You end up patching together 4-5 tools and still falling through the cracks.</p>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="icon">📞</div>
-        <h3>Homeowners Keep Calling</h3>
-        <p>They want job updates. Without a customer portal, every status check is a phone call that pulls your team off the field.</p>
-      </div>
-      <div class="problem-card">
-        <div class="icon">📐</div>
-        <h3>Measuring Takes Too Long</h3>
-        <p>Manual measuring is slow and error-prone. Professional roof measurements should come fast so you can move on to closing.</p>
-      </div>
-      <div class="problem-card">
-        <div class="icon">🌪️</div>
-        <h3>Missing Storm Opportunities</h3>
-        <p>Storm chasers move fast. Without a built-in tracker showing impacted areas in your market, you're always a step behind.</p>
-      </div>
-      <div class="problem-card">
-        <div class="icon">📧</div>
-        <h3>Supplement Emails Written Manually</h3>
-        <p>Every adjuster email takes time you don't have. Automated generation means nothing slips through the cracks.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- FEATURES -->
 <section id="features" class="scan-divider">
   <div class="container">
     <div class="section-tag">WHAT'S INCLUDED</div>
     <h2>Everything Your Team Needs.<br/>Nothing You Don't.</h2>
-    <p class="section-sub">Six powerful systems working together inside one clean platform — built from the ground up for insurance restoration roofing companies.</p>
+    <p class="section-sub">Built from the ground up for insurance restoration roofing companies.</p>
     <div class="pillars-grid">
       <div class="pillar">
         <div class="icon">🏠</div>
-        <h3>Live Customer Portal</h3>
-        <p>Your homeowners log in and see their job in real time. No more "where are we at?" calls eating up your day.</p>
+        <h3>Customer Portal</h3>
+        <p>Each homeowner gets a unique link to see their job progress. No more phone calls asking "where are we at?"</p>
         <ul class="pillar-features">
-          <li>Live job status & milestone updates</li>
+          <li>Unique link per job — toggle on/off</li>
+          <li>Control what the client can see</li>
+          <li>Live status & milestone updates</li>
           <li>Document sharing & contract signing</li>
-          <li>Photo uploads visible to homeowner</li>
-          <li>Branded with your company</li>
         </ul>
       </div>
       <div class="pillar">
         <div class="icon">📐</div>
-        <h3>Roof Measure Included</h3>
-        <p>Order professional roof measurements directly inside ClaimLogic. Delivered in under an hour for single-family homes.</p>
+        <h3>Roof Measure</h3>
+        <p>Order professional aerial measurements directly inside ClaimLogic. Delivered in under an hour.</p>
         <ul class="pillar-features">
-          <li>Aerial measurement reports</li>
           <li>Slopes, eaves, ridges, squares & BOM</li>
           <li>3D render + XML data file</li>
           <li>Auto-populates your estimate</li>
@@ -389,47 +280,43 @@
       </div>
       <div class="pillar">
         <div class="icon">🌪️</div>
-        <h3>Storm Tracker & Swath</h3>
-        <p>See exactly where hail and wind events hit in your market. ClaimLogic overlays storm swaths on a live map so your team knows where to knock.</p>
+        <h3>Storm Tracker</h3>
+        <p>Live hail and tornado reports overlaid on your market map. Know where to knock before anyone else.</p>
         <ul class="pillar-features">
           <li>Real-time hail & wind tracking</li>
           <li>Storm swath map overlay</li>
           <li>ZIP-level impact data</li>
-          <li>Exportable lead areas</li>
+        </ul>
+      </div>
+      <div class="pillar">
+        <div class="icon">🔗</div>
+        <h3>Referral Program</h3>
+        <p>Built-in referral portal. Partners register, submit leads, and earn commission — automatically tracked.</p>
+        <ul class="pillar-features">
+          <li>Partners get their own portal</li>
+          <li>Lead submission & tracking</li>
+          <li>Commission calculated automatically</li>
         </ul>
       </div>
       <div class="pillar" style="border-color: rgba(0,255,156,0.4); box-shadow: 0 0 28px rgba(0,255,156,0.08);">
         <div class="icon">⚡</div>
         <div style="display:inline-block; padding: 3px 10px; border-radius: 100px; background: rgba(0,255,156,0.12); border: 1px solid rgba(0,255,156,0.35); font-size: 10px; font-weight: 800; color: #00FF9C; letter-spacing: 1.2px; margin-bottom: 12px;">NEW FEATURE</div>
-        <h3>Estimates Built in Minutes</h3>
-        <p>Roof measure comes in — your estimate is practically done. ClaimLogic auto-fills every line item using <strong style="color:#00D4FF;">your local labor costs, material prices, and profit margin</strong> by ZIP code. You set your numbers once. It does the math every time.</p>
+        <h3>Estimate Builder</h3>
+        <p>Roof measure comes in — estimate goes out. Set your labor rates and margins once. ClaimLogic builds the rest automatically.</p>
         <ul class="pillar-features">
-          <li>Auto-fills quantities from roof measurement</li>
-          <li>Your labor rates &amp; material costs by market</li>
-          <li>Profit margin built in — you control it</li>
-          <li>Full material list: shingles, underlayment, ice &amp; water, ridge cap, drip edge, pipe boots &amp; more</li>
-          <li>Branded PDF — ready to send to homeowner</li>
-        </ul>
-      </div>
-      <div class="pillar">
-        <div class="icon">📧</div>
-        <h3>Automated Adjuster Emails</h3>
-        <p>Generate professional supplement and communication emails to adjusters automatically — no writing from scratch every time.</p>
-        <ul class="pillar-features">
-          <li>Auto-generated adjuster emails</li>
-          <li>Supplement argument templates</li>
-          <li>Sent and logged to job timeline</li>
-          <li>Full AI supplement tools <span class="coming-soon-badge">COMING SOON</span></li>
+          <li>Auto-fills quantities from measurement</li>
+          <li>Your labor rates & material costs</li>
+          <li>Branded PDF — ready to send</li>
         </ul>
       </div>
       <div class="pillar">
         <div class="icon">📊</div>
-        <h3>Full Job & Claim Management</h3>
-        <p>Every job, contact, task, invoice, and document — in one dashboard your whole team can work from.</p>
+        <h3>Job & Claim Management</h3>
+        <p>Pipeline, tasks, invoicing, documents, calendar — your whole operation in one dashboard.</p>
         <ul class="pillar-features">
-          <li>Pipeline & milestone tracking</li>
-          <li>Team tasks & calendar</li>
+          <li>Drag & drop pipeline board</li>
           <li>Invoicing & payment tracking</li>
+          <li>Automated adjuster emails</li>
           <li>Photo & document storage</li>
         </ul>
       </div>
@@ -437,144 +324,110 @@
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
 <section style="background: linear-gradient(180deg, transparent, rgba(0,212,255,0.03));">
   <div class="container">
     <h2>How It Works</h2>
-    <p class="section-sub">From new lead to collected payment — one smooth workflow your whole team follows.</p>
+    <p class="section-sub">From new lead to collected payment — one smooth workflow.</p>
     <div class="steps">
       <div class="step">
         <h4>Add the Lead</h4>
-        <p>Create a job, assign it to a rep, and attach the homeowner contact. Everything starts here.</p>
+        <p>Create a job, assign a rep, attach the homeowner. Everything starts here.</p>
       </div>
       <div class="step">
-        <h4>Order Roof Measure</h4>
-        <p>Request a professional aerial measurement from inside the job. Back in under an hour.</p>
+        <h4>Measure & Estimate</h4>
+        <p>Order roof measurement in-app. Estimate auto-builds from your rates and margins.</p>
       </div>
       <div class="step">
-        <h4>Build & Send Estimate</h4>
-        <p>Measurement data auto-fills your estimate. Send the branded PDF to the homeowner in minutes.</p>
-      </div>
-      <div class="step">
-        <h4>Keep Homeowner Updated</h4>
-        <p>Customer portal updates in real time as your team moves through milestones. No calls needed.</p>
-      </div>
-      <div class="step">
-        <h4>Email the Adjuster</h4>
-        <p>Auto-generate supplement and follow-up emails. Send with one click, logged to the job.</p>
+        <h4>Customer Portal Goes Live</h4>
+        <p>Homeowner gets a link to track their project. Toggle what they see. No more status calls.</p>
       </div>
       <div class="step">
         <h4>Close & Collect</h4>
-        <p>Invoice the job, track the balance, and mark it complete. Full job history stays forever.</p>
+        <p>Contracts, invoicing, payment tracking — all handled. Full job history saved forever.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background: linear-gradient(180deg, transparent, rgba(0,255,156,0.04));">
-  <div class="container">
-    <div class="section-tag">EASY MIGRATION</div>
-    <h2>Up and Running in 5 Minutes</h2>
-    <p class="section-sub">No data lock-in. No contracts. No "3-week onboarding." Bring your jobs, contacts, and claims with you.</p>
-    <div class="pillars-grid">
-      <div class="pillar">
-        <div class="icon">⚡</div>
-        <h3>5-Minute Setup</h3>
-        <p>Sign up, add your company info, and you're running. We personally walk you through onboarding.</p>
-      </div>
-      <div class="pillar">
-        <div class="icon">📥</div>
-        <h3>Bring Your Data</h3>
-        <p>Import jobs, contacts, and documents from a spreadsheet or CSV. We'll help you map the fields.</p>
-      </div>
-      <div class="pillar">
-        <div class="icon">🔓</div>
-        <h3>No Lock-In</h3>
-        <p>Export your data anytime. Cancel anytime. Your data is always yours.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- PRICING -->
 <section id="pricing" class="scan-divider">
   <div class="container">
     <div class="section-tag">SIMPLE PRICING</div>
-    <h2>Everything You Need.<br/>One Flat Rate.</h2>
-    <p class="section-sub">No per-user fees. No tiers. No surprises. And if you want the platform fully tailored to your company's exact workflow — add it for $99/mo more.</p>
+    <h2>Everything Included.<br/>One Flat Rate.</h2>
+    <p class="section-sub">No per-user fees. No per-email fees. No surprises.</p>
 
     <div class="pricing-grid">
-      <!-- Base Plan -->
       <div class="price-card featured">
         <h3>ClaimLogic CRM</h3>
-        <div class="tagline">Up to 15 employees — everything included</div>
+        <div class="tagline">Up to 10 users — everything included</div>
         <div class="price"><span class="price-num">$279</span><span style="font-size:22px;font-weight:900;">.99</span><span class="price-per">&nbsp;/mo</span></div>
         <ul class="price-features">
-          <li>Full job & claim management dashboard</li>
-          <li>Live customer portal — homeowners track their job</li>
-          <li>Roof measure included (ordered in-app)</li>
+          <li>Up to 10 users & emails — no extra charge</li>
+          <li>Full job & claim management</li>
+          <li>Customer portal — per-job toggle</li>
+          <li>Roof measure included</li>
           <li>Storm tracker & hail swath map</li>
-          <li>Estimates in minutes — branded PDF output</li>
-          <li>Automated adjuster email generation</li>
-          <li>Contacts, tasks & calendar</li>
+          <li>Referral program built in</li>
+          <li>Estimate builder — branded PDF</li>
+          <li>Automated adjuster emails</li>
           <li>Invoicing & payment tracking</li>
-          <li>Document & photo storage</li>
-          <li>Team management (up to 15 users)</li>
-          <li>CSV import — bring your data from any CRM</li>
-          <li>AI supplement tools <span class="coming-soon-badge">COMING SOON</span></li>
+          <li>CSV import — bring your data</li>
           <li>No contracts • Cancel anytime</li>
         </ul>
-        <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%207-Day%20Free%20Trial%20Request&body=Hi%20Jason%2C%0A%0AI%27d%20like%20to%20request%20a%207-day%20free%20trial%20of%20ClaimLogic.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0ATeam%20size%3A%20%0A%0AThanks%21" class="btn btn-primary" style="width:100%; justify-content:center;">Request 7-Day Free Trial</a>
+        <a href="#contact" class="btn btn-primary" style="width:100%; justify-content:center;">Start 60-Day Free Trial</a>
         <p style="text-align:center; margin-top:10px; font-size:13px; color:var(--silver);">or call <a href="tel:6365417005" style="color:var(--primary);">(636) 541-7005</a></p>
       </div>
 
-      <!-- Customization Add-On -->
       <div class="price-card addon">
         <h3>Custom Workflow Add-On</h3>
-        <div class="tagline">Tailored specifically to your company's process</div>
+        <div class="tagline">Tailored to your company's exact process</div>
         <div class="price"><span style="font-size:22px;font-weight:700;color:var(--warn);">+ </span><span class="price-num" style="background: linear-gradient(135deg, var(--warn), #ff9500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">$99</span><span class="price-per">&nbsp;/mo</span></div>
         <ul class="price-features">
-          <li>Toggle modules on/off — hide what you don't use</li>
-          <li>Custom pipeline stages for your exact workflow</li>
-          <li>Add your own fields to every job</li>
-          <li>Custom task checklists per pipeline stage</li>
-          <li>Rename any section to match your terminology</li>
-          <li>Your team only sees what's relevant to them</li>
-          <li>Built around how <em>you</em> run jobs — not a generic template</li>
+          <li>Custom pipeline stages</li>
+          <li>Your own fields on every job</li>
+          <li>Custom task checklists per stage</li>
+          <li>Rename any section to match your terms</li>
+          <li>Toggle modules on/off</li>
+          <li>Role-based views for your team</li>
         </ul>
         <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%20Custom%20Workflow%20Add-On&body=Hi%20Jason%2C%0A%0AI%27m%20interested%20in%20the%20Custom%20Workflow%20Add-On.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0A%0AThanks%21" class="btn btn-lg" style="width:100%; justify-content:center; background: linear-gradient(135deg, var(--warn), #ff9500); color: #001020; font-weight: 800; box-shadow: 0 0 24px rgba(255,184,0,0.25);">Add Custom Workflow →</a>
-        <p style="text-align:center; margin-top:10px; font-size:13px; color:var(--silver);">Requires base ClaimLogic plan</p>
+        <p style="text-align:center; margin-top:10px; font-size:13px; color:var(--silver);">Requires base plan</p>
       </div>
     </div>
 
-    <p style="text-align:center; margin-top:24px; font-size:14px; color:var(--silver);">15+ employees or multiple locations? <a href="mailto:info@getclaimlogic.com?subject=Enterprise%20Plan%20Inquiry" style="color:var(--primary);">Contact us for Enterprise pricing →</a></p>
+    <p style="text-align:center; margin-top:24px; font-size:14px; color:var(--silver);">10+ users or multiple locations? <a href="mailto:info@getclaimlogic.com?subject=Enterprise%20Plan%20Inquiry" style="color:var(--primary);">Contact us for Enterprise pricing →</a></p>
 
     <div class="guarantee-box">
       <div class="badge">💰</div>
       <h3>Built for Roofers. Priced for Roofers.</h3>
-      <p>Most roofing CRMs charge per user and lock core features behind higher tiers. ClaimLogic gives your entire team — up to 15 users — the full platform at one flat rate. <strong style="color: var(--green);">No per-user fees. No tiers. No surprises.</strong></p>
+      <p>One flat rate. Up to 10 users included. No per-user fees. No tiers. No surprises. <strong style="color: var(--green);">60-day free trial — no credit card required.</strong></p>
     </div>
   </div>
 </section>
 
+<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container">
     <h2>Your Competitors Are Already<br/><span style="color: var(--primary);">Automating Their Workflow</span></h2>
-    <p class="section-sub" style="margin: 16px auto 32px;">Stop juggling spreadsheets and callbacks. Get ClaimLogic running for your company today.</p>
+    <p class="section-sub" style="margin: 16px auto 32px;">Stop wasting hours on manual data entry. Get ClaimLogic running today.</p>
     <div class="cta-row">
-      <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%207-Day%20Free%20Trial%20Request&body=Hi%20Jason%2C%0A%0AI%27d%20like%20to%20request%20a%207-day%20free%20trial%20of%20ClaimLogic.%0A%0ACompany%3A%20%0AName%3A%20%0APhone%3A%20%0ATeam%20size%3A%20%0A%0AThanks%21" class="btn btn-primary btn-lg">Request 7-Day Free Trial →</a>
+      <a href="#contact" class="btn btn-primary btn-lg">Start Your 60-Day Free Trial →</a>
       <a href="tel:6365417005" class="btn btn-ghost btn-lg">📞 (636) 541-7005</a>
     </div>
-    <p style="margin-top: 20px; font-size: 13px; color: var(--dim);">7-day free trial • No credit card • Approval required • White-glove onboarding</p>
+    <p style="margin-top: 20px; font-size: 13px; color: var(--dim);">60-day free trial • No credit card • No contracts • Personal onboarding</p>
   </div>
 </section>
 
+<!-- SIGN UP FORM -->
 <section id="contact" class="scan-divider">
   <div class="container" style="max-width:680px; text-align:center;">
     <div class="section-tag">GET STARTED</div>
-    <h2>Request Your 7-Day Free Trial</h2>
+    <h2>Start Your 60-Day Free Trial</h2>
     <p class="section-sub">Fill out the form and Jason will personally reach out to get you set up — usually within 24 hours.</p>
 
     <form action="https://formsubmit.co/info@getclaimlogic.com" method="POST" style="background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;text-align:left;">
-      <input type="hidden" name="_subject" value="ClaimLogic Trial Request">
+      <input type="hidden" name="_subject" value="ClaimLogic 60-Day Trial Request">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://getclaimlogic.com/?submitted=1">
 
@@ -603,22 +456,22 @@
         <select name="team_size" style="width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-size:14px;outline:none;">
           <option>1-3 people</option>
           <option>4-7 people</option>
-          <option>8-15 people</option>
-          <option>15+ people</option>
+          <option>8-10 people</option>
+          <option>10+ people</option>
         </select>
       </div>
       <div style="margin-bottom:24px;">
         <label style="font-size:12px;font-weight:600;color:var(--warn);letter-spacing:1px;display:block;margin-bottom:8px;">⭐ ADD CUSTOM WORKFLOW? (+$99/mo)</label>
         <div style="display:flex;gap:12px;">
           <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--silver);">
-            <input type="radio" name="custom_workflow" value="Yes — I want the Custom Workflow Add-On" style="accent-color:var(--warn);"> Yes, I want full customization
+            <input type="radio" name="custom_workflow" value="Yes — I want the Custom Workflow Add-On" style="accent-color:var(--warn);"> Yes, full customization
           </label>
           <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--silver);">
             <input type="radio" name="custom_workflow" value="No — base plan only" checked> Base plan only
           </label>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Request My Free Trial →</button>
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;">Start My 60-Day Free Trial →</button>
       <p style="text-align:center;margin-top:14px;font-size:12px;color:var(--dim);">Or call us directly: <a href="tel:6365417005" style="color:var(--primary);">(636) 541-7005</a></p>
     </form>
   </div>
