@@ -1,7 +1,7 @@
 # ClaimLogic Demo Video Script
 
 **Length:** 2 minutes
-**Goal:** Get them to sign up for the free trial
+**Goal:** Get them to sign up and get started
 **Tone:** Confident, fast, results-focused. No fluff.
 **Setup:** Screen recording of ClaimLogic with Kyle Smith's job loaded
 
@@ -79,13 +79,13 @@
 
 > "ClaimLogic learns from every claim you upload. The more you use it, the smarter it gets about YOUR carriers in YOUR markets.
 >
-> $499 a month. Unlimited supplements. Pays for itself on the first claim.
+> $150 a month to start. First 10 funded jobs included, $15 per additional job, capped at $500 a month max. Unlimited users. Every feature included.
 >
 > If we don't help you recover $5,000 your first month — it's free.
 >
-> Click the link. Start your free trial. Stop letting adjusters write your paycheck."
+> Click the link. Get started today. Stop letting adjusters write your paycheck."
 
-**[End card: getclaimlogic.com — Start Free Trial]**
+**[End card: getclaimlogic.com — Get Started]**
 
 ---
 

@@ -6,18 +6,18 @@
 
 ## THE MATH (show this to recruits)
 
-| Plan | MRR | Rep Commission | Annual to Rep (1 close) |
+| Scenario | MRR | Rep Commission | Annual to Rep (1 close) |
 |---|---|---|---|
-| Starter $199 | $39.80/mo | $477.60/yr per close |
-| Growth $499 | $99.80/mo | $1,197.60/yr per close |
-| Pro $899 | $179.80/mo | $2,157.60/yr per close |
+| Base (≤10 funded jobs) $150 | $30/mo | $360/yr per close |
+| Moderate (~20 funded jobs) $300 | $60/mo | $720/yr per close |
+| Heavy (33+ funded jobs, cap) $500 | $100/mo | $1,200/yr per close |
 
-**Avg rep targets:** 4 closes/month at Growth tier = $399/mo recurring after month 1
-- Month 1: $399
-- Month 6: $2,394/mo if all retain
-- Month 12: $4,788/mo if pipeline keeps filling
+**Avg rep targets:** 4 closes/month at moderate usage (~$300 MRR avg) = $240/mo recurring after month 1
+- Month 1: $240
+- Month 6: $1,440/mo if all retain
+- Month 12: $2,880/mo if pipeline keeps filling
 
-**Top performer (8 closes/mo Growth):** $957/mo new × 12 months = $11,484/mo by month 12
+**Top performer (8 closes/mo, moderate usage):** $480/mo new × 12 months = $5,760/mo by month 12
 
 That's why this comp model attracts hungry closers.
 
@@ -37,7 +37,7 @@ That's why this comp model attracts hungry closers.
 - **Where to post:** Indeed, Craigslist, FB groups ("Sales Jobs Remote"), LinkedIn
 - **Job title:** "B2B SaaS Sales Rep — 100% Recurring Commission — Roofing Vertical"
 - **Pitch in posting:**
-  > "Sell AI software to roofing companies. $499/mo product. You earn 20% recurring on every close, paid monthly forever as long as customer pays. Top reps making $4K-$10K/mo by month 6. Remote OK. Must have B2B phone sales experience."
+  > "Sell AI software to roofing companies. $150-$500/mo product (scales with usage). You earn 20% recurring on every close, paid monthly forever as long as customer pays. Top reps making $2K-$6K/mo by month 6. Remote OK. Must have B2B phone sales experience."
 - **Filter for:** prior roofing sales, prior SaaS sales, or prior call-center performance
 - **Interview format:** 15-min Zoom — make them roleplay a cold call. If they can't pivot when you object, pass.
 
@@ -124,7 +124,7 @@ Should yield 800-1,200 prospects. Split evenly: 80-120 per rep.
 > "It's way faster to show you than tell you. I can hop on a Zoom for 15 minutes Thursday or Friday and run it on one of your actual claims — you tell me which one was lowballed and we'll see what ClaimLogic finds. Worst case, you walk away with insight on a real claim. Thursday 2 PM or Friday 10 AM work?"
 
 ### IF THEY ASK PRICE BEFORE DEMO
-> "Three plans — $199, $499, or $899 a month depending on team size. Most roofers go with the $499 plan because it includes the LKQ engine and carrier learning. We have a $5K guarantee — if you don't recover at least five grand month one, it's free. But honestly, the price is irrelevant once you see what it does. Thursday 2 or Friday 10?"
+> "$150 a month base — first 10 funded jobs included, $15 per additional funded job, capped at $500 a month max. Unlimited users, every feature included. We have a $5K guarantee — if you don't recover at least five grand month one, it's free. But honestly, the price is irrelevant once you see what it does. Thursday 2 or Friday 10?"
 
 ---
 
@@ -140,7 +140,7 @@ Should yield 800-1,200 prospects. Split evenly: 80-120 per rep.
 > Happy to. But honestly, info docs don't show you what ClaimLogic does — the demo does. It's 15 minutes and we run it on one of YOUR claims live. Thursday or Friday?
 
 **"How much?"** (before they've seen value)
-> $499/month for the most popular plan. Pays for itself the first claim it touches. We have a $5K month-one guarantee. Demo's the way to know if it works for you.
+> $150/month to start, and it scales with your volume — capped at $500/month max no matter what. Pays for itself the first claim it touches. We have a $5K month-one guarantee. Demo's the way to know if it works for you.
 
 **"Not interested" / "We're good"**
 > Totally fair. Quick question before I let you go — what does your team currently do when an adjuster lowballs you on drip edge or steep charge? Just eat it, or fight it?
@@ -171,10 +171,10 @@ You (Jason) run the demos personally for the first 30 days, while reps book them
    - Send to Adjuster button → "imagine this every claim"
 
 3. **12-14 min: The close**
-   - "Based on what you just saw, what plan makes sense — Starter, Growth, or Pro?"
-   - "Want to start the 14-day free trial right now? I can have you logged in by the time we hang up."
+   - "Based on what you just saw — ready to get started?"
+   - "Want to get started right now? I can have you set up by the time we hang up."
 
-4. **14-15 min: Trial setup**
+4. **14-15 min: Account setup**
    - Send signup link in chat
    - Walk them through first claim upload
    - Schedule 7-day check-in
@@ -208,7 +208,7 @@ After 60 days, fire bottom 30% (no shame, just math). Keep refilling.
 | Zoom (for demos) | $15 |
 | **TOTAL** | **~$425/mo** |
 
-**Break-even:** 1 close on Growth plan ($499/mo gross, $399 net of rep comm) covers your stack month one.
+**Break-even:** 2 closes at moderate usage ($300/mo avg gross, $240/mo net of rep comm each) covers your stack month one.
 
 ---
 

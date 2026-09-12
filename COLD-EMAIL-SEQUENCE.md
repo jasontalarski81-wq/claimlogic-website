@@ -1,7 +1,7 @@
 # ClaimLogic Cold Email Sequence
 
 **Target:** Roofing company owners (5-25 employees, $1M-$10M revenue, insurance-heavy)
-**Goal:** Book a 15-min demo or get free trial signup
+**Goal:** Book a 15-min demo or get them started
 **Strategy:** 5-email sequence over 14 days
 **From:** Jason Talarski <info@getclaimlogic.com>
 **Reply-to:** Personal email so replies feel real
@@ -12,7 +12,7 @@
 
 **Send via:** Resend (already configured in your CRM)
 **Throttle:** 30 emails/day max, 3-6 minute delays
-**Track:** Opens (Resend webhooks), replies (Zoho IMAP), trial signups (Stripe)
+**Track:** Opens (Resend webhooks), replies (Zoho IMAP), signups (Stripe)
 **Personalize at minimum:** First name, company name, state/city
 
 ---
@@ -84,7 +84,7 @@ Add it up: that's $2,160 you're potentially missing on EVERY claim.
 
 ClaimLogic catches all 5 automatically and writes the supplement letter for you. 90 seconds.
 
-Free trial (no card): https://getclaimlogic.com/signup
+Get started: https://getclaimlogic.com/signup
 
 — Jason
 
@@ -122,9 +122,9 @@ Reply with one word and I'll act accordingly:
 Last email from me, promise.
 
 The math on ClaimLogic:
-- $499/mo Growth plan
+- $150/mo base (first 10 funded jobs included, $15/additional, $500/mo max)
 - Avg recovery: $5,200/claim × 4 claims/week = $20,800/week
-- Net ROI: 41x in month one
+- Net ROI: 138x in month one
 
 If even one of those numbers makes you raise an eyebrow, give me 15 minutes:
 https://calendly.com/claimlogic/demo
@@ -152,7 +152,7 @@ Send: case study PDF + Calendly link + offer to call within 24h
 > That's great. How long does it take to write one? Average is 2 hours per claim. ClaimLogic does it in 90 seconds. What would your team do with the time back?
 
 ### "Send me pricing"
-Send: pricing PDF + 14-day trial link + $5K guarantee mention
+Send: pricing PDF + Get Started link + $5K guarantee mention
 
 ### "Not interested"
 > No problem — best of luck. If you ever change your mind, the door's open. I'll take you off the list.
@@ -164,14 +164,14 @@ Send: pricing PDF + 14-day trial link + $5K guarantee mention
 - **Open rate target:** 35%+ (subject lines tested)
 - **Reply rate target:** 5-8%
 - **Demo booking rate:** 1-2% of total sent
-- **Trial-to-paid conversion:** 25-35%
+- **Signup-to-active conversion:** 25-35%
 - **Avg sales cycle:** 7-14 days from first email
 
 ## A/B TESTS TO RUN
 
 1. **Email 1 subject:** "are you eating supplements" vs "$5K per claim missing"
 2. **Email 2:** Case study format vs bullet stat format
-3. **CTA:** Calendly vs free trial vs reply with "YES"
+3. **CTA:** Calendly vs Get Started link vs reply with "YES"
 4. **Length:** 50-word vs 150-word vs 300-word
 
 ## WHEN TO SEND
