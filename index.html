@@ -335,6 +335,52 @@
   </div>
 </section>
 
+<!-- PRICING CALCULATOR -->
+<section id="calculator" style="background: linear-gradient(180deg, transparent, rgba(0,212,255,0.03));">
+  <div class="container">
+    <div class="section-tag">PRICING CALCULATOR</div>
+    <h2>See What ClaimLogic Costs<br/>for Your Company</h2>
+    <p class="section-sub">Start at $150/month. Scale as your company grows. Never pay more than $500/month.</p>
+
+    <div class="calc-wrap">
+      <div class="calc-input-row">
+        <label>FUNDED JOBS PER MONTH</label>
+        <input type="range" id="calcSlider" class="calc-slider" min="0" max="150" value="20">
+        <input type="number" id="calcInput" class="calc-num-input" min="0" max="999" value="20">
+      </div>
+
+      <div class="calc-input-row">
+        <label>TEAM USERS</label>
+        <input type="range" id="calcUserSlider" class="calc-slider" min="1" max="50" value="5">
+        <input type="number" id="calcUserInput" class="calc-num-input" min="1" max="999" value="5">
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-result-item">
+          <div class="calc-result-label">JOB-BASED COST</div>
+          <div class="calc-result-value" id="calcJobCost">$300</div>
+          <div class="calc-result-sub" id="calcJobNote">20 funded jobs</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="calc-result-label">ADDITIONAL USER COST</div>
+          <div class="calc-result-value" id="calcUserCost">$0</div>
+          <div class="calc-result-sub" id="calcUserNote">5 users — included</div>
+        </div>
+        <div class="calc-result-item" style="border-color: var(--primary);">
+          <div class="calc-result-label">ESTIMATED TOTAL</div>
+          <div class="calc-result-value" id="calcTotal" style="color: var(--primary);">$300</div>
+          <div class="calc-result-sub" id="calcTotalNote">/month</div>
+        </div>
+      </div>
+
+      <div class="calc-cap-banner" id="calcCapBanner">
+        <div class="cap-title">🎉 YOU'VE HIT THE JOB-BASED PRICE CAP</div>
+        <div class="cap-sub">$500 MAXIMUM ON JOB-BASED CHARGES — THE MORE YOU GROW, THE LESS CLAIMLOGIC COSTS PER JOB.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FEATURES -->
 <section id="features" class="scan-divider">
   <div class="container">
@@ -473,52 +519,6 @@
       <div class="badge-icon"><i data-lucide="badge-dollar-sign"></i></div>
       <h3>Your Bill Stops at $500</h3>
       <p>Whether you close 34 jobs or 150, you'll never pay more than $500 in a single month. <strong style="color: var(--green);">The more you grow, the less ClaimLogic costs per job.</strong></p>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING CALCULATOR -->
-<section id="calculator" style="background: linear-gradient(180deg, transparent, rgba(0,212,255,0.03));">
-  <div class="container">
-    <div class="section-tag">PRICING CALCULATOR</div>
-    <h2>See What ClaimLogic Costs<br/>for Your Company</h2>
-    <p class="section-sub">Start at $150/month. Scale as your company grows. Never pay more than $500/month.</p>
-
-    <div class="calc-wrap">
-      <div class="calc-input-row">
-        <label>FUNDED JOBS PER MONTH</label>
-        <input type="range" id="calcSlider" class="calc-slider" min="0" max="150" value="20">
-        <input type="number" id="calcInput" class="calc-num-input" min="0" max="999" value="20">
-      </div>
-
-      <div class="calc-input-row">
-        <label>TEAM USERS</label>
-        <input type="range" id="calcUserSlider" class="calc-slider" min="1" max="50" value="5">
-        <input type="number" id="calcUserInput" class="calc-num-input" min="1" max="999" value="5">
-      </div>
-
-      <div class="calc-results">
-        <div class="calc-result-item">
-          <div class="calc-result-label">JOB-BASED COST</div>
-          <div class="calc-result-value" id="calcJobCost">$300</div>
-          <div class="calc-result-sub" id="calcJobNote">20 funded jobs</div>
-        </div>
-        <div class="calc-result-item">
-          <div class="calc-result-label">ADDITIONAL USER COST</div>
-          <div class="calc-result-value" id="calcUserCost">$0</div>
-          <div class="calc-result-sub" id="calcUserNote">5 users — included</div>
-        </div>
-        <div class="calc-result-item" style="border-color: var(--primary);">
-          <div class="calc-result-label">ESTIMATED TOTAL</div>
-          <div class="calc-result-value" id="calcTotal" style="color: var(--primary);">$300</div>
-          <div class="calc-result-sub" id="calcTotalNote">/month</div>
-        </div>
-      </div>
-
-      <div class="calc-cap-banner" id="calcCapBanner">
-        <div class="cap-title">🎉 YOU'VE HIT THE JOB-BASED PRICE CAP</div>
-        <div class="cap-sub">$500 MAXIMUM ON JOB-BASED CHARGES — THE MORE YOU GROW, THE LESS CLAIMLOGIC COSTS PER JOB.</div>
-      </div>
     </div>
   </div>
 </section>
