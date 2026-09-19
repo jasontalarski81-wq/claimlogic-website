@@ -570,7 +570,7 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
         <div>
           <label style="font-size:12px;font-weight:600;color:var(--silver);letter-spacing:1px;display:block;margin-bottom:6px;">PHONE</label>
-          <input type="tel" name="phone" required placeholder="(555) 000-0000" style="width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.05);color:var(--text);font-size:14px;outline:none;">
+          <input type="tel" name="phone" required placeholder="555-555-5555" oninput="this.value=this.value.replace(/\D/g,'').replace(/(\d{3})(\d{0,3})(\d{0,4})/,function(_,a,b,c){return a+(b?'-'+b:'')+(c?'-'+c:'')}).slice(0,12)" maxlength="12" style="width:100%;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.05);color:var(--text);font-size:14px;outline:none;">
         </div>
         <div>
           <label style="font-size:12px;font-weight:600;color:var(--silver);letter-spacing:1px;display:block;margin-bottom:6px;">EMAIL</label>
