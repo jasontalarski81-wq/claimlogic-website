@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Security & Data Protection Guarantee — ClaimLogic</title>
+<meta name="description" content="ClaimLogic's ironclad data protection guarantee. Your data is never sold, never shared, always encrypted. Built for roofing contractors who demand security.">
+<link rel="icon" type="image/png" href="claimlogic-banner-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0A0F1C;--bg2:#0e1424;--primary:#00D4FF;--secondary:#1E90FF;--silver:#AAB4C2;--text:#e5eefb;--dim:#6b7fa0;--card:rgba(14,20,36,.8);--border:rgba(0,212,255,.15);--glow:0 0 24px rgba(0,212,255,.2);--green:#00FF9C;--red:#FF4D4D}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:var(--primary);text-decoration:none}
+
+/* Background glows */
+.bg-glow{position:fixed;pointer-events:none;z-index:0;filter:blur(120px);opacity:.4;border-radius:50%}
+.bg-glow-1{width:600px;height:600px;background:var(--primary);top:-200px;right:0}
+.bg-glow-2{width:500px;height:500px;background:#FF3D9A;bottom:20%;left:0;opacity:.15}
+.bg-glow-3{width:400px;height:400px;background:var(--green);top:50%;right:10%;opacity:.12}
+@media(max-width:768px){.bg-glow{filter:none}.bg-glow-1{background:radial-gradient(circle,rgba(0,212,255,.2) 0%,transparent 70%)}.bg-glow-2{background:radial-gradient(circle,rgba(255,61,154,.1) 0%,transparent 70%)}.bg-glow-3{background:radial-gradient(circle,rgba(0,255,156,.06) 0%,transparent 70%)}}
+
+/* Nav */
+nav{padding:20px 0;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,15,28,.8);border-bottom:1px solid var(--border)}
+@media(max-width:768px){nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(10,15,28,.96)}}
+nav .row{max-width:1140px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.5px}
+.logo img{width:32px;height:32px;border-radius:6px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--silver);font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+
+/* Container */
+.container{max-width:1140px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+/* Hero */
+.sec-hero{padding:80px 0 40px;text-align:center}
+.shield-icon{width:80px;height:80px;margin:0 auto 24px;background:rgba(0,255,156,.08);border:2px solid rgba(0,255,156,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;animation:shieldPulse 3s ease-in-out infinite}
+@keyframes shieldPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,255,156,.15)}50%{box-shadow:0 0 40px 10px rgba(0,255,156,.1)}}
+.shield-icon svg{width:40px;height:40px;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sec-hero h1{font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.1;letter-spacing:-2px;margin-bottom:16px;background:linear-gradient(135deg,#fff,var(--green) 80%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sec-hero .sub{font-size:18px;color:var(--silver);max-width:680px;margin:0 auto}
+
+/* Guarantee banner */
+.guarantee-banner{margin:48px auto;max-width:860px;background:linear-gradient(135deg,rgba(0,255,156,.06),rgba(0,212,255,.06));border:2px solid rgba(0,255,156,.2);border-radius:20px;padding:40px 36px;text-align:center;position:relative;overflow:hidden}
+.guarantee-banner::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--green),var(--primary),var(--green),transparent)}
+.guarantee-banner h2{font-size:28px;font-weight:900;color:var(--green);margin-bottom:16px;letter-spacing:-.5px}
+.guarantee-banner .pledge{font-size:16px;color:var(--text);line-height:1.8;max-width:640px;margin:0 auto}
+.guarantee-banner .pledge strong{color:var(--green)}
+
+/* Promise cards grid */
+.promises{padding:60px 0}
+.promises h2{text-align:center;font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:12px}
+.promises .sub{text-align:center;color:var(--silver);font-size:15px;max-width:600px;margin:0 auto 40px}
+.promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.promise-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color .2s,transform .2s}
+.promise-card:hover{border-color:rgba(0,255,156,.3);transform:translateY(-2px)}
+.promise-card .card-icon{width:48px;height:48px;background:rgba(0,255,156,.08);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.promise-card .card-icon svg{width:24px;height:24px;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.promise-card h3{font-size:18px;font-weight:800;margin-bottom:8px;letter-spacing:-.3px}
+.promise-card p{font-size:14px;color:var(--silver);line-height:1.7}
+
+/* Written guarantee */
+.written-guarantee{padding:60px 0}
+.guarantee-doc{max-width:860px;margin:0 auto;background:rgba(0,255,156,.03);border:1px solid rgba(0,255,156,.15);border-radius:20px;padding:48px 40px;position:relative}
+.guarantee-doc::before{content:'OFFICIAL';position:absolute;top:20px;right:28px;font-size:10px;font-weight:800;letter-spacing:2px;color:var(--green);background:rgba(0,255,156,.1);padding:4px 12px;border-radius:100px;border:1px solid rgba(0,255,156,.2)}
+.guarantee-doc h2{font-size:26px;font-weight:900;margin-bottom:24px;letter-spacing:-.5px}
+.guarantee-doc .clause{margin-bottom:20px;padding-left:20px;border-left:3px solid rgba(0,255,156,.25)}
+.guarantee-doc .clause h4{font-size:15px;font-weight:700;color:var(--green);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.guarantee-doc .clause p{font-size:14px;color:var(--silver);line-height:1.7}
+.guarantee-doc .signoff{margin-top:36px;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;gap:16px}
+.guarantee-doc .signoff-text{font-size:13px;color:var(--silver)}
+.guarantee-doc .signoff-text strong{color:var(--text);display:block;font-size:15px;margin-bottom:2px}
+
+/* Compliance strip */
+.compliance{padding:60px 0}
+.compliance h2{text-align:center;font-size:28px;font-weight:900;letter-spacing:-.5px;margin-bottom:32px}
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:860px;margin:0 auto}
+.comp-item{text-align:center;padding:24px;background:var(--card);border:1px solid var(--border);border-radius:14px}
+.comp-item .comp-icon{font-size:28px;margin-bottom:10px}
+.comp-item h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.comp-item p{font-size:12px;color:var(--dim)}
+
+/* CTA */
+.sec-cta{padding:60px 0 80px;text-align:center}
+.sec-cta h2{font-size:28px;font-weight:900;letter-spacing:-.5px;margin-bottom:12px}
+.sec-cta p{color:var(--silver);font-size:15px;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:10px;font-weight:700;font-size:16px;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#001020;box-shadow:var(--glow)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 0 36px rgba(0,212,255,.5)}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text);padding:14px 28px;font-size:14px}
+.btn-ghost:hover{border-color:var(--primary)}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* Footer */
+footer{padding:36px 24px;border-top:1px solid var(--border);text-align:center;color:var(--dim);font-size:13px;position:relative;z-index:2}
+footer a{margin:0 12px;color:var(--silver)}
+
+@media(max-width:640px){
+  .guarantee-banner{padding:28px 20px}
+  .guarantee-doc{padding:32px 20px}
+  .guarantee-doc::before{position:static;display:inline-block;margin-bottom:16px}
+  .sec-hero{padding:60px 0 30px}
+}
+</style>
+</head><body>
+
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
+
+<nav><div class="row">
+  <a href="/" class="logo"><img src="claimlogic-banner-logo.png" alt="ClaimLogic"><span>ClaimLogic</span></a>
+  <div class="nav-links"><a href="/">Home</a><a href="security.html" style="color:var(--green)">Security</a><a href="legal/privacy.html">Privacy</a></div>
+</div></nav>
+
+<!-- Hero -->
+<section class="sec-hero">
+  <div class="container">
+    <div class="shield-icon">
+      <svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+    </div>
+    <h1>Your Data Is Sacred.<br>We Treat It That Way.</h1>
+    <p class="sub">ClaimLogic was built by roofers, for roofers. We understand that your customer data, insurance scopes, and business information are the backbone of your company. That's why we've made an ironclad commitment to protecting it.</p>
+  </div>
+</section>
+
+<!-- Guarantee Banner -->
+<section>
+  <div class="container">
+    <div class="guarantee-banner">
+      <h2>🔒 The ClaimLogic Data Guarantee</h2>
+      <p class="pledge">
+        We will <strong>never sell your data</strong>. Not to marketing companies. Not to lead generators. Not to insurance carriers. Not to anyone. <strong>Period.</strong><br><br>
+        Your customer lists, insurance scopes, claim details, photos, and business information belong to <strong>you and only you</strong>. We are a tool that works for your company — not a data broker wearing a CRM mask.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Security Promises -->
+<section class="promises">
+  <div class="container">
+    <h2>How We Protect Your Business</h2>
+    <p class="sub">Enterprise-grade security without the enterprise price tag.</p>
+    <div class="promise-grid">
+
+      <div class="promise-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Data Never Sold. Ever.</h3>
+        <p>Your customer info, insurance scopes, claim numbers, and business data will never be sold, rented, traded, or shared with third parties for their benefit. That's not a policy — it's a promise.</p>
+      </div>
+
+      <div class="promise-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3>256-Bit Encryption</h3>
+        <p>All data is encrypted in transit (TLS 1.3) and at rest. Your information is protected by the same encryption standards used by major banks and financial institutions.</p>
+      </div>
+
+      <div class="promise-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Your Data, Your Property</h3>
+        <p>You own 100% of the data you put into ClaimLogic. Export it anytime. Delete it anytime. If you ever leave, your data goes with you — we don't hold it hostage.</p>
+      </div>
+
+      <div class="promise-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>No Hidden Data Mining</h3>
+        <p>We don't scan your scopes to sell leads. We don't analyze your customer lists to target ads. We don't use your data to build competing products. Your data serves one purpose: helping you run your business.</p>
+      </div>
+
+      <div class="promise-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3>AI That Respects Privacy</h3>
+        <p>Our AI features process your scopes and documents to help you — not to train external models. AI providers we use are contractually prohibited from using your data for their own training.</p>
+      </div>
+
+      <div class="promise-card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </div>
+        <h3>Access Controls & Audit Logs</h3>
+        <p>Role-based permissions ensure only authorized team members see what they need. Every action is logged so you always know who did what and when.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Written Guarantee -->
+<section class="written-guarantee">
+  <div class="container">
+    <div class="guarantee-doc">
+      <h2>📜 Written Data Protection Guarantee</h2>
+
+      <div class="clause">
+        <h4>1. Zero Data Sales</h4>
+        <p>Claim Logic LLC guarantees that it will never sell, license, rent, or otherwise commercially distribute any customer data, business data, insurance scope data, homeowner information, or any other proprietary information entered into the ClaimLogic platform by its users.</p>
+      </div>
+
+      <div class="clause">
+        <h4>2. Data Ownership</h4>
+        <p>All data uploaded, entered, or generated within your ClaimLogic workspace remains the exclusive property of your company. ClaimLogic claims no ownership rights over your data. Upon account termination, you may export all data, and we will purge it from our active systems within 90 days.</p>
+      </div>
+
+      <div class="clause">
+        <h4>3. Limited Access</h4>
+        <p>Your data is isolated to your company workspace. Other ClaimLogic customers cannot see your information. ClaimLogic employees access customer data only when required for technical support or legal compliance, under strict internal controls and logging.</p>
+      </div>
+
+      <div class="clause">
+        <h4>4. No Third-Party Sharing</h4>
+        <p>We do not share your data with insurance carriers, lead generation companies, marketing platforms, data brokers, or any other third party for their commercial use. The only third parties that touch your data are infrastructure providers (hosting, encryption, payment processing) bound by strict data protection agreements.</p>
+      </div>
+
+      <div class="clause">
+        <h4>5. AI Data Protection</h4>
+        <p>When you use AI-powered features (scope parsing, supplement analysis, etc.), your data is processed solely to deliver results to you. Our AI sub-processors are contractually prohibited from using your data to train general-purpose models. We minimize the personally identifiable information sent to any AI provider.</p>
+      </div>
+
+      <div class="clause">
+        <h4>6. Breach Notification</h4>
+        <p>In the unlikely event of a data breach affecting your information, we will notify you within 72 hours with full details of what occurred, what data was affected, and what steps we're taking to resolve it. No hiding. No delays.</p>
+      </div>
+
+      <div class="signoff">
+        <div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div class="signoff-text">
+          <strong>Claim Logic LLC</strong>
+          This guarantee is effective as of October 13, 2026 and applies to all current and future ClaimLogic subscribers.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Compliance -->
+<section class="compliance">
+  <div class="container">
+    <h2>Built on Trust</h2>
+    <div class="comp-grid">
+      <div class="comp-item">
+        <div class="comp-icon">🔐</div>
+        <h4>TLS 1.3 Encryption</h4>
+        <p>All data encrypted in transit</p>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🗄️</div>
+        <h4>Encrypted at Rest</h4>
+        <p>Database & backups encrypted</p>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🛡️</div>
+        <h4>Zero Data Sales</h4>
+        <p>Written guarantee, no exceptions</p>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">📋</div>
+        <h4>Audit Logging</h4>
+        <p>Every access recorded & tracked</p>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🔄</div>
+        <h4>Daily Backups</h4>
+        <p>Automated with disaster recovery</p>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">📤</div>
+        <h4>Full Data Export</h4>
+        <p>Your data, whenever you want it</p>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">🤖</div>
+        <h4>AI Privacy Controls</h4>
+        <p>No model training on your data</p>
+      </div>
+      <div class="comp-item">
+        <div class="comp-icon">⚡</div>
+        <h4>72-Hour Breach Notice</h4>
+        <p>Transparent incident reporting</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-cta">
+  <div class="container">
+    <h2>Ready to See It in Action?</h2>
+    <p>Start your 30-day complimentary access. No credit card required. Your data is safe from day one.</p>
+    <div class="cta-row">
+      <a href="https://app.getclaimlogic.com/register" class="btn btn-primary">Start Free — 30 Days</a>
+      <a href="legal/privacy.html" class="btn btn-ghost">Read Full Privacy Policy</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Claim Logic LLC</div>
+  <div style="margin-top:12px">
+    <a href="/">Home</a><a href="legal/terms.html">Terms</a><a href="legal/privacy.html">Privacy</a><a href="security.html">Security</a>
+  </div>
+  <div style="margin-top:12px;font-size:12px">© 2026 Claim Logic LLC. All rights reserved.</div>
+</footer>
+
+</body></html>
