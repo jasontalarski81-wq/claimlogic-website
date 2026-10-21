@@ -135,7 +135,7 @@
     .pricing-card-single { max-width: 520px; margin: 0 auto; position: relative; overflow: hidden; padding: 44px 36px; background: var(--card); border: 2px solid var(--primary); border-radius: 24px; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: var(--glow); }
     .pricing-card-single::after { content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0,212,255,0.15), transparent); transform: skewX(-25deg); pointer-events: none; transition: left 0.8s ease; }
     .pricing-card-single:hover::after { left: 125%; }
-    @media (max-width: 768px) { .pricing-card-single { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(14,20,36,0.95); } .pricing-card-single::after { display: none; } }
+    @media (max-width: 768px) { .pricing-card-single { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(14,20,36,0.95); } .pricing-card-single::after { display: none; } .pricing-grid-2col { grid-template-columns: 1fr !important; } }
     .pricing-card-single h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
     .pricing-card-single .price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 28px; }
     .pricing-card-single .price-num { font-size: 56px; font-weight: 900; }
@@ -444,39 +444,64 @@
   <div class="container">
     <div class="section-tag">SIMPLE PRICING</div>
     <h2>Built for Small Roofers.<br/>Priced for Growth.</h2>
-    <p class="section-sub">One plan. No tiers. No hidden fees. Your first 10 team members are included.</p>
+    <p class="section-sub">Two plans. No hidden fees. Your first 10 team members are included.</p>
 
-    <div class="pricing-card-single">
-      <h3>ClaimLogic</h3>
-      <div class="price"><span class="price-num">$179.99</span><span class="price-per">&nbsp;/ month</span></div>
-      <p style="font-size:14px;color:var(--silver);margin:-20px 0 24px;">After your 21-day full access</p>
-      <ul class="price-features">
-        <li>21-day full access — complete platform, zero restrictions</li>
-        <li>Everything included — complete roofing SaaS</li>
-        <li>10 users included — $25/mo per additional user</li>
-        <li>Fully automated — no manual data entry</li>
-        <li>English + Spanish bilingual platform</li>
-        <li>Full job & claim management</li>
-        <li>Customer portal — per-job toggle</li>
-        <li>Roof measure included</li>
-        <li>Storm tracker & hail swath map</li>
-        <li>Referral program built in</li>
-        <li>Estimate builder — branded PDF</li>
-        <li>Automated adjuster emails</li>
-        <li>Invoicing & payment tracking</li>
-        <li>CSV import — bring your data</li>
-        <li>No contracts · Cancel anytime</li>
-      </ul>
-      <a href="#contact" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">🚀 Unlock 21 Days Free — Start Closing More Leads →</a>
-      <p style="text-align:center; margin-top:10px; font-size:13px; color:var(--silver);">or call <a href="tel:6365417005" style="color:var(--primary);">(636) 541-7005</a></p>
+    <div class="pricing-grid-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;">
+
+      <!-- STANDARD -->
+      <div class="pricing-card-single" style="position:relative;">
+        <h3>ClaimLogic</h3>
+        <div class="price"><span class="price-num">$179.99</span><span class="price-per">&nbsp;/ month</span></div>
+        <p style="font-size:14px;color:var(--silver);margin:-20px 0 24px;">After your 21-day full access</p>
+        <ul class="price-features">
+          <li>21-day full access — zero restrictions</li>
+          <li>Everything included — complete roofing SaaS</li>
+          <li>10 users included — $25/mo per additional user</li>
+          <li>Fully automated — no manual data entry</li>
+          <li>English + Spanish bilingual platform</li>
+          <li>Full job & claim management</li>
+          <li>Customer portal — per-job toggle</li>
+          <li>Roof measure included</li>
+          <li>Storm tracker & hail swath map</li>
+          <li>Referral program built in</li>
+          <li>Estimate builder — branded PDF</li>
+          <li>Automated adjuster emails</li>
+          <li>Invoicing & payment tracking</li>
+          <li>CSV import — bring your data</li>
+          <li>No contracts · Cancel anytime</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-lg" style="width:100%; justify-content:center;">🚀 Unlock 21 Days Free →</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="pricing-card-single" style="position:relative;border-color:rgba(249,115,22,0.4);">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#f97316,#fb923c);color:#fff;font-size:11px;font-weight:800;letter-spacing:1.5px;padding:6px 20px;border-radius:50px;">MOST POPULAR</div>
+        <h3 style="color:#f97316;">ClaimLogic Pro</h3>
+        <div class="price"><span class="price-num">$279.99</span><span class="price-per">&nbsp;/ month</span></div>
+        <p style="font-size:14px;color:var(--silver);margin:-20px 0 24px;">After your 21-day full access</p>
+        <ul class="price-features">
+          <li><strong style="color:#f97316;">Everything in ClaimLogic, plus:</strong></li>
+          <li>⭐ Custom workflow builder — your process, your way</li>
+          <li>⭐ Custom pipeline stages tailored to your operation</li>
+          <li>⭐ Branded customer portal — your logo, your colors</li>
+          <li>⭐ Custom automated email sequences</li>
+          <li>⭐ Custom report dashboards</li>
+          <li>⭐ Priority support — direct line</li>
+          <li>⭐ Dedicated onboarding & setup</li>
+          <li>10 users included — $25/mo per additional user</li>
+          <li>No contracts · Cancel anytime</li>
+        </ul>
+        <a href="#contact" class="btn btn-lg" style="width:100%; justify-content:center;background:linear-gradient(135deg,#f97316,#fb923c);color:#fff;box-shadow:0 0 24px rgba(249,115,22,0.3);">🚀 Unlock 21 Days Free — Pro →</a>
+      </div>
+
     </div>
 
-    <p style="text-align:center; margin-top:24px; font-size:14px; color:var(--silver);">Need a custom workflow? <a href="mailto:info@getclaimlogic.com?subject=ClaimLogic%20Custom%20Workflow%20Inquiry" style="color:var(--primary);">Contact us about add-ons →</a></p>
+    <p style="text-align:center; margin-top:20px; font-size:13px; color:var(--silver);">or call <a href="tel:6365417005" style="color:var(--primary);">(636) 541-7005</a></p>
 
     <div class="guarantee-box">
       <div class="badge-icon"><i data-lucide="badge-dollar-sign"></i></div>
       <h3>Complete SaaS. Honest Price.</h3>
-      <p>$179.99/month after your 21-day full access. Everything included from day one.</p>
+      <p>Starting at $179.99/month after your 21-day full access. Everything included from day one.</p>
     </div>
   </div>
 </section>
