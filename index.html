@@ -205,7 +205,38 @@
       .calc-results { grid-template-columns: 1fr; }
       .calc-input-row { flex-direction: column; align-items: stretch; }
     }
-  </style>
+ /* Readable header buttons */
+.nav-links a.btn-primary,
+.nav-links a.btn-primary:hover,
+.nav-links a.btn-primary:focus-visible {
+  color: #001020;
+  font-weight: 700;
+}
+.nav-links .btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  nav .row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  nav .logo {
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .nav-links .btn {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+}  </style>
 </head>
 <body>
 
